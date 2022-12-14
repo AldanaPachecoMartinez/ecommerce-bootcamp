@@ -10,14 +10,158 @@
 </head>
 <body>
     <header>
-        <nav class="main-nav">
-            <div class="nav-links">
-                <a href="" class="nav-item active">Link 1</a>
-                <a href="" class="nav-item">Link 2</a>
-                <a href="" class="nav-item">Link 3</a>
-                <a href="" class="nav-item">Link 4</a>
-            </div>
+
+        <nav class="navbar">
+            <a href="/index.html" class="navbar__nav-link">
+                <img src="" alt="Logo del E-commerce"  class="navbar__logo" width="50px">
+            </a>
+
+            <ul class="navbar__nav-links-container">
+                <li class="navbar__nav-item">
+                    <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
+                    <li>
+                    <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a></li>
+                    <li>
+                    <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a></li>
+                    <li>
+                    <a href="/pages/register/register.html" class="navbar__nav-link">Registrarse</a></li>
+            </ul>
         </nav>
+
+        <div class="user-navbar">
+            <div class="user-navbar__cart-icon-container">
+                <!-- TODO: add font icon and icon item -->
+                ICONO CART
+            </div>
+            <!-- TODO: avatar de la persona logueada o nombre  -->
+        </div>
     </header>
+    <!-- TODO: Implementar carousel en 2do modulo  -->
+
+    <!---------------- MAIN --------------->
+    <main>
+        <section class="section-cards">
+            <header class="section-cards__header">
+                <div class="section-cards__title-container">
+                    <h1 class="section-cards__title">
+                        Lorem ipsum dolor sit amet.
+                    </h1>
+                    <p class="section-cards__subtitle">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni reprehenderit repellendus, consequuntur accusamus fuga sit.
+                    </p>
+                </div>
+                <div class="section-cards__products-search-container">
+                    <div class="product-search">
+                        <label for="" class="product-search__label">Buscar</label>
+                        <input type="text" class="product-search__input">
+                        <button class="product-search__btn">Buscar</button>
+                    </div>
+                    <div class="section-cards__products-count">
+                        Se encontraron X productos
+                    </div>
+                </div>
+            </header>
+
+            <div class="cards-containers">
+                <h1 class="cards-containers__category">
+                    CATEGORÍA: OFERTAS
+                </h1>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <div class="card__price">
+                            $ XXXX
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+    </main>
+
+    <div class="whatsapp-container">
+        <a href="#" class="whatsapp-container__link">
+            <img src="#" alt="Whatsapp Contact Link" class="whatsapp-container__img">
+        </a>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer__column">
+            <ul class="footer__social-media-container">
+                <li class="footer__social-media-item">
+                    <a href="#" class="footer__social-media-link">
+                        <!-- ICONO -->
+                        Facebook
+                    </a>
+                </li>
+                <li class="footer__social-media-item">
+                    <a href="#" class="footer__social-media-link">
+                        <!-- ICONO -->
+                        Instagram
+                    </a>
+                </li>
+                <li class="footer__social-media-item">
+                    <a href="#" class="footer__social-media-link">
+                        <!-- ICONO -->
+                        Linkedin
+                    </a>
+                </li>    
+            </ul>
+        </div>
+        <div class="footer__column">
+            <img src="#" alt="Company Logo" class="footer__logo">
+            <h1 class="footer__company-name">
+                NOMBRE DE LA EMPRESA
+            </h1>
+            <p class="footer__copyrigth">
+                Todos los derechos reservados a 
+            </p>
+        </div>
+        <div class="footer__column">
+            <ul class="footer__contact-container">
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <!-- ICONO -->
+                        Teléfono
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <!-- ICONO -->
+                        Localización
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <!-- ICONO -->
+                        E-mail
+                    </a>
+                </li>    
+            </ul>
+        </div>
+
+    </footer>
+
 </body>
 </html>
