@@ -10,12 +10,29 @@
     
     <main>
         <div class="contact-section">
+
             <div class="contact-section__formular">
-                <form action=""></form>
+                <form >
+                    <div class="">
+                        <label for="idInputName">Nombre y Apellido</label><br>
+                        <input type="text" name="fullName" id="idInputName" maxlength="60" minlength="6" required autofocus>
+                    </div>
+                    <div>
+                        <label for="emailInput">E-mail</label><br>
+                        <input type="email" name="email" id="emailInput" minlength="8" maxlength="50" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                    </div>
+                    <div>
+                        <p>Consulta</p>
+                        <textarea name="consulta" id="" cols="30" rows="10" placeholder="Escriba aquí su consulta" maxlength="255" minlength="4"></textarea>
+                    </div>
+                </form>
             </div>
 
 
-            <div class="ubication-section"></div>
+            <div class="ubication-section">
+                
+            </div>
+
         </div>
     </main>
 
