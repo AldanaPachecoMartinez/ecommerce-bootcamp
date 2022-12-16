@@ -36,4 +36,38 @@ a {
 .main-nav .nav-links .nav-item:hover {
   font-size: 1.2rem;
   color: darkred;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: blanchedalmond;
+}
+.footer__column {
+  padding: 1rem 1.5rem;
+}
+.footer__contact-link {
+  color: black;
+}
+.footer__contact-item {
+  list-style: none;
+}
+.footer__contact-link {
+  color: black;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer__contact-icon {
+  font-size: 1.75rem;
+}
+.footer__contact-icon--facebook {
+  color: #0037c1;
+}
+
+@media screen and (min-width: 600px) {
+  .footer {
+    flex-direction: row;
+  }
 }/*# sourceMappingURL=main.css.map */

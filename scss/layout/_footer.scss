@@ -1,0 +1,25 @@
+.footer{display: flex;
+flex-direction: column;
+background-color: blanchedalmond;
+
+&__column{padding: 1rem 1.5rem;}
+
+&__contact-link{color: black;}
+
+&__contact-item{list-style: none;}
+
+&__contact-link{color: black;
+padding: .25rem;
+display: flex;
+align-items: center;
+gap: .5rem;}
+
+&__contact-icon{font-size: 1.75rem;
+
+&--facebook{color:#0037c1 ;}}
+
+}
+
+@media screen and(min-width: 600px) {
+    .footer{flex-direction: row;}
+}
