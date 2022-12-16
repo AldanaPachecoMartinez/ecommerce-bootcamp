@@ -15,49 +15,29 @@ a {
   text-decoration: none;
 }
 
-.main-nav {
-  background-color: rgb(247, 94, 77);
-  color: #fff;
-  height: 60px;
-  display: flex;
-  align-items: center;
-}
-.main-nav .nav-links {
-  padding: 2rem;
-}
-.main-nav .nav-links .nav-item {
-  text-decoration: none;
-  color: #fff;
-}
-.main-nav .nav-links .nav-item.active {
-  color: red;
-  font-weight: bold;
-}
-.main-nav .nav-links .nav-item:hover {
-  font-size: 1.2rem;
-  color: darkred;
-}
-
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: blanchedalmond;
+  background-color: #eae7e0;
 }
 .footer__column {
   padding: 1rem 1.5rem;
 }
 .footer__contact-link {
-  color: black;
+  color: rgb(94, 94, 94);
 }
 .footer__contact-item {
   list-style: none;
 }
 .footer__contact-link {
-  color: black;
+  color: rgb(94, 94, 94);
   padding: 0.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+.footer__company-name {
+  color: rgb(94, 94, 94);
 }
 .footer__contact-icon {
   font-size: 1.75rem;
@@ -69,5 +49,6 @@ a {
 @media screen and (min-width: 600px) {
   .footer {
     flex-direction: row;
+    justify-content: space-between;
   }
 }/*# sourceMappingURL=main.css.map */

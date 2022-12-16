@@ -1,18 +1,20 @@
 .footer{display: flex;
 flex-direction: column;
-background-color: blanchedalmond;
+background-color: $color-bg-secondary-light;
 
 &__column{padding: 1rem 1.5rem;}
 
-&__contact-link{color: black;}
+&__contact-link{color: $color-text-light ;}
 
 &__contact-item{list-style: none;}
 
-&__contact-link{color: black;
+&__contact-link{color: $color-text-light;
 padding: .25rem;
 display: flex;
 align-items: center;
 gap: .5rem;}
+
+&__company-name{color: $color-text-light;}
 
 &__contact-icon{font-size: 1.75rem;
 
@@ -21,5 +23,6 @@ gap: .5rem;}
 }
 
 @media screen and(min-width: 600px) {
-    .footer{flex-direction: row;}
+    .footer{flex-direction: row;
+    justify-content: space-between;}
 }
