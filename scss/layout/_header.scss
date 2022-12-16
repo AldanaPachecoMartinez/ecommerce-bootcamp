@@ -1,23 +1,86 @@
-.main-nav {
-    background-color: $color-bg-primary;
-    color: $color-text-light;
-    height: 60px;
-    display: flex;
-    align-items: center;
+.header{position: fixed;
+width: 100%;}
 
-    .nav-links {
-        padding: 2rem;
-        .nav-item {
-            text-decoration: none;
-            color: $color-text-light;
-        &.active {
-            color: red;
-            font-weight: bold;}
-        &:hover {
-                font-size: 1.2rem;
-                color: darkred;
-                }
-            
-        }
+
+.navbar{height: 50px;
+background-color: $color-bg-secondary;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+&__logo{height: 45px;}
+
+&__menu-label{color: $color-bg-secondary;
+margin-left: auto;
+height: 42px;
+width: 42px;
+margin-right: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+&__menu-btn{top: 0;
+bottom: 0;
+opacity: 0;}
+
+&__menu-btn:checked ~ &__nav-links-container {
+    height: calc(100vh - 50px);}
+
+
+&__menu-icon {height: 2px;
+background-color: black;
+width: 18px;
+position: relative;
+
+&::after, &::before {content: '';
+height: 2px;
+background-color: black;
+position: absolute;
+width: 100%;
+transition:  all .2s ease-out;}
+
+&::after {top: 5px;}
+
+&::before {top:-5px; }
+}
+
+&__menu-btn:checked ~ &__menu-label &__menu-icon {background: transparent;
+
+    &::after {transform: rotate(45deg);
+    top:0 ;}
+    
+    &::before{transform: rotate(45deg);
+    top: 0;}}
+
+&__nav-links-container {
+list-style: none;
+position: absolute;
+top:50px;
+background-color: $color-bg-secondary;
+width: 100%;
+display: flex;
+height: 0;
+overflow: hidden;
+transition:all .3s ease-out;
+flex-direction: column;
+align-items: center;
+justify-content: center;}
+
+
+
+&__nav-item{padding: 1.25rem 1rem;
+
+    &navbar__nav-item:not(last-child) {border-bottom: 1px solid black;} }
+
+&__nav-link {color: black;}}
+
+@media screen and (min-width: 600px) {.navbar {
+    &__menu-label, &__menu-btn{display: none;}
+
+    &__nav-links-container {position: static;
+    flex-direction: row;
+    height: 100%;
+    width: auto;}
     }
 }
