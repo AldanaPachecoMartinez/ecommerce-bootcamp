@@ -45,6 +45,12 @@ a {
 .footer__contact-icon--facebook {
   color: #0037c1;
 }
+.footer__contact-icon--instagram {
+  color: #db004e;
+}
+.footer__contact-icon--linkedin {
+  color: #0a66c2;
+}
 
 @media screen and (min-width: 600px) {
   .footer {
