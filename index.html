@@ -11,52 +11,60 @@
 </head>
 <body>
 
-    <!--------------------------   HEADER    --------------------------->
+    <!-----------------  HEADER    -------------------->
     <header>
 
         <nav class="navbar">
             <a href="/index.html" class="navbar__nav-link">
-                <img src="/assets/images/logo Largo.png" alt="Logo del E-commerce"  class="navbar__logo" width="145px">
+                <img src="/assets/images/logo-marca-large.png" alt="Logo del E-commerce"  class="navbar__logo">
             </a>
+
+            <div class="user-navbar">
+                <div class="user-navbar__cart-icon-container">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="user-navbar__user-avatar-container">
+                    <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
+                </div>
+            </div>
+            
+            <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
+            <label for="menu-btn" class="navbar__menu-label">
+                <span class="navbar__menu-icon"></span>
+            </label>
+
 
             <ul class="navbar__nav-links-container">
                 <li class="navbar__nav-item">
                     <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
-                    <li>
+                <li class="navbar__nav-item">
                     <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a></li>
-                    <li>
+                <li class="navbar__nav-item">
                     <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a></li>
-                    <li>
+                <li class="navbar__nav-item">
                     <a href="/pages/register/register.html" class="navbar__nav-link">Registrarse</a></li>
             </ul>
         </nav>
 
-        <div class="user-navbar">
-            <div class="user-navbar__cart-icon-container">
-                <!-- TODO: add font icon and icon item -->
-                ICONO CART
-            </div>
-            <!-- TODO: avatar de la persona logueada o nombre  -->
-        </div>
     </header>
     <!-- TODO: Implementar carousel en 2do modulo  -->
 
-    <!------------------------------   MAIN   --------------------------------->
-    <main>
+    <!-------------------  MAIN   ---------------------->
+    <main class="main">
         <section class="section-cards">
             <header class="section-cards__header">
                 <div class="section-cards__title-container">
                     <h1 class="section-cards__title">
-                        Lorem ipsum dolor sit amet.
+                        DE&CO estilo y comodidad
                     </h1>
                     <p class="section-cards__subtitle">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni reprehenderit repellendus, consequuntur accusamus fuga sit.
+                        DE&CO acompaña en esa búsqueda de sentir nuestros lugares cálidos y únicos. Esta colección con diseños cuidadosamente seleccionados se complementa a la perfección con su deseo de crear ambientes inigualables. 
                     </p>
                 </div>
                 <div class="section-cards__products-search-container">
                     <div class="product-search">
-                        <label for="" class="product-search__label">Buscar</label>
-                        <input type="text" class="product-search__input">
+                        <label for="" class="product-search__label">Encontrá aquí tu producto</label><br>
+                        <input type="text" class="product-search__input"><br>
                         <button class="product-search__btn">Buscar</button>
                     </div>
                     <div class="section-cards__products-count">
@@ -65,15 +73,17 @@
                 </div>
             </header>
 
+            <h2 class="section-cards__category">
+                Categoría: OFERTAS
+            </h2>
+
+
             <div class="cards-containers">
-                <h2 class="cards-containers__category">
-                    CATEGORÍA: OFERTAS
-                </h2>
 
                 <article class="card">
 
                     <div class="card__header">
-                        <img src="#" alt="Product Image" class="card__img">
+                        <img src="/assets/images/sea-candle.webp" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -93,6 +103,69 @@
                         <div class="card__btn-container">
                             <a href="#" class="card__btn">Detalle</a>
                         </div>
+                        <div class="card__btn-buy">
+                            <a href="#">Lo quiero!</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/shapes-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <div class="card__price">
+                            $ XXXX
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                        <div class="card__btn-buy">
+                            <a href="#">Lo quiero!</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/wind-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <div class="card__price">
+                            $ XXXX
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                        <div class="card__btn-buy">
+                            <a href="#">Lo quiero!</a>
+                        </div>
                     </div>
 
                 </article>
@@ -109,7 +182,7 @@
     </div>
 
 
-    <!-----------------------------  FOOTER   ------------------------------->
+    <!------------------- FOOTER ---------------------->
 
     <footer class="footer">
 
@@ -137,7 +210,7 @@
             </ul>
         </div>
         <div class="footer__column">
-            <img src="/assets/images/Logo DECO.png" alt="Company Logo" class="footer__logo" width="120px">
+            <img src="/assets/images/logo-marca.png" alt="Company Logo" class="footer__logo" width="120px">
             <h2 class="footer__company-name">
                 DE&CO <em>design</em>
             </h2>
