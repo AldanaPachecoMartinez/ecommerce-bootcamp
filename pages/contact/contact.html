@@ -5,36 +5,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <header>
+
+        <nav class="navbar">
+            <a href="/index.html" class="navbar__nav-link">
+                <img src="/assets/images/logo-marca-large.png" alt="Logo del E-commerce"  class="navbar__logo">
+            </a>
+
+            <div class="user-navbar">
+                <div class="user-navbar__cart-icon-container">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="user-navbar__user-avatar-container">
+                    <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
+                </div>
+            </div>
+            
+            <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
+            <label for="menu-btn" class="navbar__menu-label">
+                <span class="navbar__menu-icon"></span>
+            </label>
+
+
+            <ul class="navbar__nav-links-container">
+                <li class="navbar__nav-item">
+                    <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a></li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a></li>
+                <li class="navbar__nav-item">
+                    <a href="/pages/register/register.html" class="navbar__nav-link">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
     
-    <main>
+    <main class="main-contact">
         <div class="contact-section">
 
             <div class="contact-section__formular">
+                <h2>Contáctanos!</h2>
                 <form >
-                    <div class="">
-                        <label for="idInputName">Nombre y Apellido</label><br>
-                        <input type="text" name="fullName" id="idInputName" maxlength="60" minlength="6" required autofocus>
+                    <div class="contact-section__formular--fullname">
+                        <label for="idInputName" >Nombre y Apellido</label><br>
+                        <input type="text" name="fullName" id="idInputName" maxlength="60" minlength="6" required autofocus class="contact-section__input">
                     </div>
-                    <div>
+                    <div class="contact-section__formular--email">
                         <label for="emailInput">E-mail</label><br>
-                        <input type="email" name="email" id="emailInput" minlength="8" maxlength="50" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        <input type="email" name="email" id="emailInput" minlength="8" maxlength="50" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required class="contact-section__input">
                     </div>
-                    <div>
+                    <div class="contact-section__formular--consulta">
                         <p>Consulta</p>
-                        <textarea name="consulta" id="" cols="30" rows="10" placeholder="Escriba aquí su consulta" maxlength="255" minlength="4"></textarea>
+                        <textarea name="consulta" id="" cols="45" rows="8" placeholder="Escriba aquí su consulta" maxlength="255" minlength="4" class="contact-section__input"></textarea>
+                    </div>
+                    <div class="contact-section__btn-enviar">
+                        <button class="contact-section__formular--btn">Enviar</button>
                     </div>
                 </form>
             </div>
 
+            <div class="contact-section__ubication">
+                <h2>Visítanos!</h2>
 
-            <div class="ubication-section">
-                
+                <div class="contact-section__ubication--map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13614.636703304755!2d-64.19221327632648!3d-31.451048589644802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2e234b6d23f%3A0xb9f17de401ae729b!2sPaseo%20del%20Jockey!5e0!3m2!1ses-419!2sar!4v1672351218062!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+            <a href="/index.html" class="contact-footer__btn">HOME</a>
             </div>
 
         </div>
+        
     </main>
+
+
+    <footer class="footer">
+
+        <div class="footer__column">
+            <ul class="footer__social-media-container">
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                    <i class="fa-brands fa-facebook-f footer__contact-icon
+                    footer__contact-icon--facebook"></i>
+                        Facebook
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                    <i class="fa-brands fa-instagram footer__contact-icon footer__contact-icon--instagram"></i>
+                        Instagram
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                    <i class="fa-brands fa-linkedin footer__contact-icon footer__contact-icon--linkedin"></i>
+                        Linkedin
+                    </a>
+                </li>    
+            </ul>
+        </div>
+        <div class="footer__column">
+            <img src="/assets/images/logo-marca.png" alt="Company Logo" class="footer__logo" width="120px">
+            <h2 class="footer__company-name">
+                DE&CO <em>design</em>
+            </h2>
+            <p class="footer__copyrigth">
+                Todos los derechos reservados a DE&CO
+            </p>
+        </div>
+        <div class="footer__column">
+            <ul class="footer__contact-container">
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <i class="fa-solid fa-phone footer__contact-icon"></i>
+                        Teléfono
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <i class="fa-solid fa-location-dot footer__contact-icon"></i>
+                        Localización
+                    </a>
+                </li>
+                <li class="footer__contact-item">
+                    <a href="#" class="footer__contact-link">
+                        <i class="fa-solid fa-envelope footer__contact-icon"></i>
+                        E-mail
+                    </a>
+                </li>    
+            </ul>
+        </div>
+
+    </footer>
+
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 flex-direction: column;
 background-color: $color-bg-secondary-light;
 
-&__column{padding: 1rem 1.5rem;}
+&__column{padding: .9rem 1.5rem;}
 
 &__contact-link{color: $color-text-light ;}
 
@@ -18,12 +18,14 @@ gap: .5rem;}
 
 &__contact-icon{font-size: 1.75rem;
 
-&--facebook{color:#0037c1 ;}
+&--facebook{color:#1948c1 ;}
 
-&--instagram{color: #db004e;} 
+&--instagram{color: #d11154;} 
 
 &--linkedin{color: #0a66c2;}
     }
+
+&__contact-icon{font-size: 1.3rem ;}
 }
 
 @media screen and(min-width: 600px) {

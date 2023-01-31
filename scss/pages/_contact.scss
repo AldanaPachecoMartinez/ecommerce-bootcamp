@@ -1,0 +1,112 @@
+body {background-color: $color-bg-primary-light;
+height: 100vh;
+display: flex;
+flex-direction: column;
+width: 100%;}
+
+h2{margin-bottom: .7rem;}
+
+.main-contact{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    }
+
+.contact-section{display: flex;
+flex-direction: column;
+margin-top: 1.5rem;
+flex: 1;
+width: 100%;
+
+    &__formular{margin: 1rem;
+    padding: 1.2rem; 
+    border-radius: 3px;
+    background-color: rgb(165, 157, 146, 0.3);
+        
+        &:hover{transform: scale(1.1);
+        transition: .8s ease-in-out;}
+        
+        &--fullname, &--email, &--consulta{margin-bottom: .7rem;}
+
+        &--btn{padding: .4rem .6rem;
+        font-family: "Libre Baskerville", serif;
+        font-size: .9rem;}
+    
+    }
+
+    
+
+    &__btn-enviar {display: flex;
+        justify-content: center;}
+
+    &__input{width: 95%;
+    padding: .2rem;}
+
+    &__ubication{margin: 1rem;
+    padding: .7rem; 
+
+    &--map{overflow: hidden;}
+    }
+
+}
+
+.contact-footer{display: flex;
+justify-content: center;
+
+    &__btn {padding: .6rem 2.5rem;
+margin: 1.5rem;
+background-color: $color-bg-primary-light;
+border-color: $color-bg-primary-dark;
+border-style:solid;
+border-radius: 3px;
+position: relative;
+z-index: 1;
+overflow: hidden;
+display: inline-block;
+font-family: "Libre Baskerville", serif;
+    
+    &:visited{text-decoration: none;
+    color: $color-bg-primary-dark;}
+
+    &:hover{color: white;}
+
+    &::after{content: "";
+    background: $color-bg-primary-dark;
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;}
+
+    &:hover::after{left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    }}
+
+    &__btn-link{color: grey;
+    
+
+    }}
+
+    @media screen and (min-width:600px) {
+        .contact-section{display: flex;
+            align-items: center;
+            &__formular{width: 70%;}
+        }
+    }
+
+    @media screen and (min-width:1000px) {
+        .contact-section{display: flex;
+            align-items: center;
+            &__formular{width: 50%;}
+        }
+    }

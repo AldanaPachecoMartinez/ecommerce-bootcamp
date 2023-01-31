@@ -16,8 +16,17 @@
 
         <nav class="navbar">
             <a href="/index.html" class="navbar__nav-link">
-                <img src="/assets/images/logo Largo.png" alt="Logo del E-commerce"  class="navbar__logo">
+                <img src="/assets/images/logo-marca-large.png" alt="Logo del E-commerce"  class="navbar__logo">
             </a>
+
+            <div class="user-navbar">
+                <div class="user-navbar__cart-icon-container">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="user-navbar__user-avatar-container">
+                    <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
+                </div>
+            </div>
             
             <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
             <label for="menu-btn" class="navbar__menu-label">
@@ -37,32 +46,25 @@
             </ul>
         </nav>
 
-        <div class="user-navbar">
-            <div class="user-navbar__cart-icon-container">
-                <!-- TODO: add font icon and icon item -->
-                ICONO CART
-            </div>
-            <!-- TODO: avatar de la persona logueada o nombre  -->
-        </div>
     </header>
     <!-- TODO: Implementar carousel en 2do modulo  -->
 
     <!-------------------  MAIN   ---------------------->
-    <main>
+    <main class="main">
         <section class="section-cards">
             <header class="section-cards__header">
                 <div class="section-cards__title-container">
                     <h1 class="section-cards__title">
-                        Lorem ipsum dolor sit amet.
+                        DE&CO estilo y comodidad
                     </h1>
                     <p class="section-cards__subtitle">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni reprehenderit repellendus, consequuntur accusamus fuga sit.
+                        DE&CO acompaña en esa búsqueda de sentir nuestros lugares cálidos y únicos. Esta colección con diseños cuidadosamente seleccionados se complementa a la perfección con su deseo de crear ambientes inigualables. 
                     </p>
                 </div>
                 <div class="section-cards__products-search-container">
                     <div class="product-search">
-                        <label for="" class="product-search__label">Buscar</label>
-                        <input type="text" class="product-search__input">
+                        <label for="" class="product-search__label">Encontrá aquí tu producto</label><br>
+                        <input type="text" class="product-search__input"><br>
                         <button class="product-search__btn">Buscar</button>
                     </div>
                     <div class="section-cards__products-count">
@@ -71,30 +73,32 @@
                 </div>
             </header>
 
+            <h2 class="section-cards__category">
+                Categoría: OFERTAS
+            </h2>
+
+
             <div class="cards-containers">
-                <h2 class="cards-containers__category">
-                    CATEGORÍA: OFERTAS
-                </h2>
 
                 <article class="card">
 
                     <div class="card__header">
-                        <img src="#" alt="Product Image" class="card__img">
+                        <img src="/assets/images/sea-candle.webp" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
-                            PRODUCT NAME
+                            VELA THÁLASSA
                         </div>
-                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <p class="card__description">Para disfrutar de su luz y aroma a vainilla, esta vela realizada en cera de soja ha sido diseñada artesanalmente cuidando sus detalles para hacerla única. En ella se busca reflejar, como su nombre lo indica, toda la magia del mar.</p>
                         <div class="card__price">
-                            $ XXXX
+                            $ 2000
                         </div>
                     </div>
 
                     <div class="card__footer">
                         <div class="card__date">
-                            13/12/2022
+                            31/01/2023
                         </div>
                         <div class="card__btn-container">
                             <a href="#" class="card__btn">Detalle</a>
@@ -106,22 +110,22 @@
                 <article class="card">
 
                     <div class="card__header">
-                        <img src="#" alt="Product Image" class="card__img">
+                        <img src="/assets/images/shapes-candle.webp" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
-                            PRODUCT NAME
+                            VELA EFFRADEIA
                         </div>
-                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <p class="card__description">Con aroma a coco, prepara y perfuma el ambiente para crear momentos de calma, armonía y bienestar. De diseño fluido y gran durabilidad, esta vela de cera vegetal es la compañía perfecta para cualquier espacio.  </p>
                         <div class="card__price">
-                            $ XXXX
+                            $ 2700
                         </div>
                     </div>
 
                     <div class="card__footer">
                         <div class="card__date">
-                            13/12/2022
+                        31/01/2023
                         </div>
                         <div class="card__btn-container">
                             <a href="#" class="card__btn">Detalle</a>
@@ -133,22 +137,319 @@
                 <article class="card">
 
                     <div class="card__header">
-                        <img src="#" alt="Product Image" class="card__img">
+                        <img src="/assets/images/wind-candle.webp" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
-                            PRODUCT NAME
+                            VELA ZESTASIÁ
                         </div>
-                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <p class="card__description">Llamada calidez, este diseño presenta notas amaderadas y florales. Ideal para crear esos instantes de encuentro con uno mismo y disfrutar de su luz. También disponible en versión mango y maracuyá, para perfumar cada rincón. </p>
                         <div class="card__price">
-                            $ XXXX
+                            $ 3000
                         </div>
                     </div>
 
                     <div class="card__footer">
                         <div class="card__date">
-                            13/12/2022
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/circle-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA CICLOS 
+                        </div>
+                        <p class="card__description">Con doble pabilo 100% ecológico para que su consumo se de parejamente, desea brindar ese detalle minimalista que embellece cualquier espacio. Cuenta con aroma a peonias y flores blancas, una fragancia clásica, fresca y elegante. </p>
+                        <div class="card__price">
+                            $ 3500
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/knot-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA GRAVÁTES 
+                        </div>
+                        <p class="card__description">Elaborada en cera vegetal, se conjuga en uno de nuestros diseños mas complejos. Confeccionada 100% a mano y con esencias que dejarán un suave aroma a frambuesas. Compañera ideal para momentos especiales. </p>
+                        <div class="card__price">
+                            $ 3000
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/large-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA DIUMOS 
+                        </div>
+                        <p class="card__description">Formada por líneas que simulan suaves movimientos, este diseño en cera de soja cuenta con olor a café y caramelo. Destacada tanto por su fragancia como por su originalidad. Disfrutala también en aroma naranja y canela. </p>
+                        <div class="card__price">
+                            $ 2500
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/feather-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA AERÁKI
+                        </div>
+                        <p class="card__description">Con su versatilidad busca reflejar el viento y con sus aceites aromáticos de verbena y limón, nos permite refrescar nuestros espacios. Esta confeccionada en cera de soja, vertida y terminada a mano, cuidando cada uno de sus detalles. </p>
+                        <div class="card__price">
+                            $ 3200
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/lines-candle.webp " alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA ZEI
+                        </div>
+                        <p class="card__description">Trabajada artesanalmente y con estilo bombé, esta vela cuenta con aroma a té blanco y jengibre. Sumamente innovadora y delicada, es realizada con un pabilo de algodón 100% ecológico al igual que el resto de nuestros productos.</p>
+                        <div class="card__price">
+                            $ 3000
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/arch-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA IRIS
+                        </div>
+                        <p class="card__description">Siendo la combinación perfecta para decorar y perfumar, llega esta vela con su aroma a lavanda y tilo. Una fragancia que vamos a desear permanezca mucho tiempo en nuestro hogar. Incluye dos pabilos, para que al utilizarla no pierda su figura.</p>
+                        <div class="card__price">
+                            $ 2800
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/water-candle.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            VELA NERÓ
+                        </div>
+                        <p class="card__description">Inspirada en el agua y con suaves notas de manzana y canela, esta vela de cera de soja conjuga delicadeza y sencillez. Sumamente combinable con cualquier ambiente y decoración, disfrutala también en su versión vainilla que renueva nuestras energías en cualquier momento.</p>
+                        <div class="card__price">
+                            $ 2200
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/sculpture.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            ESCULTURA NIX
+                        </div>
+                        <p class="card__description">Tallada a mano en una sola pieza de piedra blanca, esta escultura abstracta se entreteje creando una forma única y fluida. Su diseño se basa en la idea de un solo movimiento ininterrumpido que se entrelaza, brindando un acabado minimalista y moderno. Sus medidad son 30cm de alto y 45cm de ancho.</p>
+                        <div class="card__price">
+                            $ 9600
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/deco-dish.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            BASE HELIOS
+                        </div>
+                        <p class="card__description">Sumándose a la Línea Voltaire de arte y esculturas, llega esta base realizada en cerámica artesanal con acabado semi-laqueado y detalles en su base. Completamente hecha a mano, puede utilizarse como portavelas, centro de mesa, o como decoración en sí. Exclusiva y delicada.    </p>
+                        <div class="card__price">
+                            $ 5800
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/frame-art.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            CUADRO ZADIG
+                        </div>
+                        <p class="card__description">Los protagonistas de cualquier habitación seguramente sean los movimientos y texturas plasmados en este cuadro, realizado en yeso, con técnicas únicas y contemporáneas. Una combinación refinada de figuras, arte y fluidez, con mucho para apreciar. Sus medidas son 40cm de alto y 60cm de ancho. Sumamente liviano y versátil.  </p>
+                        <div class="card__price">
+                            $ 18000
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="/assets/images/frame-art2.webp" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            CUADRO MONROE
+                        </div>
+                        <p class="card__description">Otro de los íconos de la Línea Voltaire, es este abstracto realizado en yeso que combina la planitud de un cuadro con el relieve de las esculturas. Sus diferentes niveles, con terminaciones talladas a mano, llegan a formar la esencia del mismo y sus figuras, quedan libres a nuestra interpretación. Sus medidas son 40cm de alto y 45cm de ancho. </p>
+                        <div class="card__price">
+                            $ 25000
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            31/01/2023
                         </div>
                         <div class="card__btn-container">
                             <a href="#" class="card__btn">Detalle</a>
@@ -160,13 +461,24 @@
             </div>
 
         </section>
+
+        <a href="https://walink.co/29ba08" class="whatsapp-container" target="_blank">
+        
+        <svg
+            fill="rgb(125,125,125)"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="120px"
+            height="120px">
+            <path
+                d="M 12.011719 2 C 6.5057187 2 2.0234844 6.478375 2.0214844 11.984375 C 2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562 L 2 22 L 7.2324219 20.763672 C 8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516 L 12.009766 21.978516 C 17.514766 21.978516 21.995047 17.499141 21.998047 11.994141 C 22.000047 9.3251406 20.962172 6.8157344 19.076172 4.9277344 C 17.190172 3.0407344 14.683719 2.001 12.011719 2 z M 12.009766 4 C 14.145766 4.001 16.153109 4.8337969 17.662109 6.3417969 C 19.171109 7.8517969 20.000047 9.8581875 19.998047 11.992188 C 19.996047 16.396187 16.413812 19.978516 12.007812 19.978516 C 10.674812 19.977516 9.3544062 19.642812 8.1914062 19.007812 L 7.5175781 18.640625 L 6.7734375 18.816406 L 4.8046875 19.28125 L 5.2851562 17.496094 L 5.5019531 16.695312 L 5.0878906 15.976562 C 4.3898906 14.768562 4.0204844 13.387375 4.0214844 11.984375 C 4.0234844 7.582375 7.6067656 4 12.009766 4 z M 8.4765625 7.375 C 8.3095625 7.375 8.0395469 7.4375 7.8105469 7.6875 C 7.5815469 7.9365 6.9355469 8.5395781 6.9355469 9.7675781 C 6.9355469 10.995578 7.8300781 12.182609 7.9550781 12.349609 C 8.0790781 12.515609 9.68175 15.115234 12.21875 16.115234 C 14.32675 16.946234 14.754891 16.782234 15.212891 16.740234 C 15.670891 16.699234 16.690438 16.137687 16.898438 15.554688 C 17.106437 14.971687 17.106922 14.470187 17.044922 14.367188 C 16.982922 14.263188 16.816406 14.201172 16.566406 14.076172 C 16.317406 13.951172 15.090328 13.348625 14.861328 13.265625 C 14.632328 13.182625 14.464828 13.140625 14.298828 13.390625 C 14.132828 13.640625 13.655766 14.201187 13.509766 14.367188 C 13.363766 14.534188 13.21875 14.556641 12.96875 14.431641 C 12.71875 14.305641 11.914938 14.041406 10.960938 13.191406 C 10.218937 12.530406 9.7182656 11.714844 9.5722656 11.464844 C 9.4272656 11.215844 9.5585938 11.079078 9.6835938 10.955078 C 9.7955938 10.843078 9.9316406 10.663578 10.056641 10.517578 C 10.180641 10.371578 10.223641 10.267562 10.306641 10.101562 C 10.389641 9.9355625 10.347156 9.7890625 10.285156 9.6640625 C 10.223156 9.5390625 9.737625 8.3065 9.515625 7.8125 C 9.328625 7.3975 9.131125 7.3878594 8.953125 7.3808594 C 8.808125 7.3748594 8.6425625 7.375 8.4765625 7.375 z"
+                />
+            </svg>
+    
+        </a>
+
     </main>
 
-    <div class="whatsapp-container">
-        <a href="#" class="whatsapp-container__link">
-            <img src="#" alt="Whatsapp Contact Link" class="whatsapp-container__img">
-        </a>
-    </div>
 
 
     <!------------------- FOOTER ---------------------->
@@ -197,7 +509,7 @@
             </ul>
         </div>
         <div class="footer__column">
-            <img src="/assets/images/Logo DECO.png" alt="Company Logo" class="footer__logo" width="120px">
+            <img src="/assets/images/logo-marca.png" alt="Company Logo" class="footer__logo" width="120px">
             <h2 class="footer__company-name">
                 DE&CO <em>design</em>
             </h2>
