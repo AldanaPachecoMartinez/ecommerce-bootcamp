@@ -46,7 +46,10 @@ margin-bottom: .5rem;
     text-transform: uppercase;
     padding: .3rem;
     font-size: .7rem;
-    margin-top: .5rem;}
+    margin-top: .5rem;
+    color: black;
+        &:visited{color: black;}
+    }
 
 }
 
