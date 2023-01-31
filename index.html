@@ -11,22 +11,28 @@
 </head>
 <body>
 
-    <!--------------------------   HEADER    --------------------------->
+    <!-----------------  HEADER    -------------------->
     <header>
 
         <nav class="navbar">
             <a href="/index.html" class="navbar__nav-link">
-                <img src="/assets/images/logo Largo.png" alt="Logo del E-commerce"  class="navbar__logo" width="145px">
+                <img src="/assets/images/logo Largo.png" alt="Logo del E-commerce"  class="navbar__logo">
             </a>
+            
+            <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
+            <label for="menu-btn" class="navbar__menu-label">
+                <span class="navbar__menu-icon"></span>
+            </label>
+
 
             <ul class="navbar__nav-links-container">
                 <li class="navbar__nav-item">
                     <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
-                    <li>
+                <li class="navbar__nav-item">
                     <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a></li>
-                    <li>
+                <li class="navbar__nav-item">
                     <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a></li>
-                    <li>
+                <li class="navbar__nav-item">
                     <a href="/pages/register/register.html" class="navbar__nav-link">Registrarse</a></li>
             </ul>
         </nav>
@@ -41,7 +47,7 @@
     </header>
     <!-- TODO: Implementar carousel en 2do modulo  -->
 
-    <!------------------------------   MAIN   --------------------------------->
+    <!-------------------  MAIN   ---------------------->
     <main>
         <section class="section-cards">
             <header class="section-cards__header">
@@ -97,6 +103,60 @@
 
                 </article>
 
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <div class="card__price">
+                            $ XXXX
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card__header">
+                        <img src="#" alt="Product Image" class="card__img">
+                    </div>
+
+                    <div class="card__body">
+                        <div class="card__title">
+                            PRODUCT NAME
+                        </div>
+                        <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero provident nesciunt ullam cupiditate dolores veritatis qui sunt voluptatum voluptates itaque.</p>
+                        <div class="card__price">
+                            $ XXXX
+                        </div>
+                    </div>
+
+                    <div class="card__footer">
+                        <div class="card__date">
+                            13/12/2022
+                        </div>
+                        <div class="card__btn-container">
+                            <a href="#" class="card__btn">Detalle</a>
+                        </div>
+                    </div>
+
+                </article>
+
             </div>
 
         </section>
@@ -109,7 +169,7 @@
     </div>
 
 
-    <!-----------------------------  FOOTER   ------------------------------->
+    <!------------------- FOOTER ---------------------->
 
     <footer class="footer">
 

@@ -1,0 +1,117 @@
+.header{position: fixed;
+width: 100%;}
+
+.navbar{
+height: 50px;
+background-color: $color-bg-primary-light;
+display: flex;
+align-items: center;
+position: relative;
+
+&__logo {height: 45px;}
+
+&__menu-label{
+color: $color-bg-primary-light;
+margin-left: auto;
+height: 42px;
+width: 42px;
+margin-right: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+&__menu-btn{ position: absolute;
+right: 0;
+top: 0;
+bottom: 0;
+opacity: 0;
+    }
+
+&__menu-btn:checked ~ &__nav-links-container {
+    height: calc(100vh - 50px);
+    }
+
+
+&__menu-icon {
+    height: 2px;
+    background-color: $color-text;
+    width: 18px;
+    position: relative;
+
+        &::after, &::before {
+        content: '';
+        height: 2px;
+        background-color:$color-text;
+        position: absolute;
+        width: 100%;
+        transition:  all .2s ease-out;
+        }
+
+        &::after {
+            top: 5px;
+        }
+
+        &::before {
+            top:-5px;
+        }
+    }
+
+&__menu-btn:checked ~ &__menu-label &__menu-icon {
+    background: transparent;
+
+    &::after {
+        transform: rotate(45deg);
+    top:0;
+    }
+
+    &::before{
+        transform: rotate(-45deg);
+    top: 0;
+        }
+    } 
+
+&__nav-links-container {
+list-style: none;
+position: absolute;
+top:50px;
+background-color: $color-bg-primary-light;
+width: 100%;
+height: 0;
+overflow: hidden;
+transition:all .3s ease-out;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+
+
+&__nav-item{padding: 1.25rem 1rem;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $color-text;
+    } 
+}
+
+&__nav-link {
+    color: $color-text;
+    }
+} 
+
+@media screen and (min-width: 600px) {
+    .navbar {
+    &__menu-label, &__menu-btn{
+        display: none;
+    }
+
+    &__nav-links-container {
+    position: static;
+    flex-direction: row;
+    height: 100% !important;
+    width: auto;
+        }
+    }
+}
+
