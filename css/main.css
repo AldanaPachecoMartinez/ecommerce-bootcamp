@@ -684,6 +684,10 @@ h2 {
   padding: 0.4rem 0.6rem;
   font-family: "Libre Baskerville", serif;
   font-size: 0.9rem;
+  color: black;
+}
+.contact-section__formular--btn:visited {
+  color: black;
 }
 .contact-section__btn-enviar {
   display: flex;
@@ -717,36 +721,10 @@ h2 {
   overflow: hidden;
   display: inline-block;
   font-family: "Libre Baskerville", serif;
-}
-.contact-footer__btn:visited {
-  text-decoration: none;
   color: rgb(193, 193, 193);
 }
-.contact-footer__btn:hover {
-  color: white;
-}
-.contact-footer__btn::after {
-  content: "";
-  background: rgb(193, 193, 193);
-  position: absolute;
-  z-index: -1;
-  padding: 16px 20px;
-  display: block;
-  top: 0;
-  bottom: 0;
-  left: -100%;
-  right: 100%;
-  transition: all 0.35s;
-}
-.contact-footer__btn:hover::after {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all 0.35s;
-}
-.contact-footer__btn-link {
-  color: grey;
+.contact-footer__btn:visited {
+  color: rgb(193, 193, 193);
 }
 
 @media screen and (min-width: 600px) {
@@ -756,6 +734,36 @@ h2 {
   }
   .contact-section__formular {
     width: 70%;
+  }
+  .contact-footer__btn:visited {
+    text-decoration: none;
+    color: rgb(193, 193, 193);
+  }
+  .contact-footer__btn:active {
+    color: rgb(193, 193, 193);
+  }
+  .contact-footer__btn:hover {
+    color: white;
+  }
+  .contact-footer__btn::after {
+    content: "";
+    background: rgb(193, 193, 193);
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    transition: all 0.35s;
+  }
+  .contact-footer__btn:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
   }
 }
 @media screen and (min-width: 1000px) {

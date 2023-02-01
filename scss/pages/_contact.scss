@@ -31,7 +31,9 @@ width: 100%;
 
         &--btn{padding: .4rem .6rem;
         font-family: "Libre Baskerville", serif;
-        font-size: .9rem;}
+        font-size: .9rem;
+        color: black;
+            &:visited{color: black;}}
     
     }
 
@@ -65,43 +67,53 @@ z-index: 1;
 overflow: hidden;
 display: inline-block;
 font-family: "Libre Baskerville", serif;
+color: $color-bg-primary-dark;
     
-    &:visited{text-decoration: none;
-    color: $color-bg-primary-dark;}
+    &:visited{color: $color-bg-primary-dark;}
+    }
 
-    &:hover{color: white;}
 
-    &::after{content: "";
-    background: $color-bg-primary-dark;
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    display: block;
-    top: 0;
-    bottom: 0;
-    left: -100%;
-    right: 100%;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;}
-
-    &:hover::after{left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-    }}
-
-    &__btn-link{color: grey;
-    
-
-    }}
+    }
 
     @media screen and (min-width:600px) {
         .contact-section{display: flex;
             align-items: center;
-            &__formular{width: 70%;}
-        }
+            &__formular{width: 70%;}}
+
+
+        .contact-footer{
+            &__btn {
+                    
+                    &:visited{text-decoration: none;
+                    color: $color-bg-primary-dark;}
+                
+                    &:active{color: $color-bg-primary-dark; }
+                
+                    &:hover{color: white;}
+                
+                    &::after{content: "";
+                    background: $color-bg-primary-dark;
+                    position: absolute;
+                    z-index: -1;
+                    padding: 16px 20px;
+                    display: block;
+                    top: 0;
+                    bottom: 0;
+                    left: -100%;
+                    right: 100%;
+                    -webkit-transition: all 0.35s;
+                    transition: all 0.35s;}
+                
+                    &:hover::after{left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    -webkit-transition: all 0.35s;
+                    transition: all 0.35s;
+                    }
+                    }
+                }
+        
     }
 
     @media screen and (min-width:1000px) {
