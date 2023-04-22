@@ -68,12 +68,12 @@
 
             <div class="form-content__item">
                 <label for="passwordInput">Contraseña</label><br>
-                <input type="password"  minlength="8" maxlength="20" name="password" required class="form-content__input form-content__input--password">
+                <input type="password"  minlength="8" maxlength="20" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required class="form-content__input form-content__input--password">
             </div>
 
             <div class="form-content__item">
                 <label for="passwordInput">Repetir contraseña</label><br>
-                <input type="password"  minlength="8" maxlength="20" name="password2" required class="form-content__input form-content__input--password">
+                <input type="password"  minlength="8" maxlength="20" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required class="form-content__input form-content__input--password">
             </div>
 
         
@@ -429,8 +429,8 @@
 
     </footer>
 
-    <script src="/js/header.js"></script>
-    <script src="/js/alert.js"></script>
     <script src="/js/register.js"></script>
+    <script src="/js/alert.js"></script>
+    <script src="/js/header.js"></script>
 </body>
 </html>

@@ -22,6 +22,7 @@
             <div class="user-navbar">
                 <div class="user-navbar__cart-icon-container">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="user-navbar__cart-badge" id="cart-count"></div>
                 </div>
                 <div class="user-navbar__user-avatar-container">
                     <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
@@ -34,7 +35,7 @@
             </label>
 
 
-            <ul class="navbar__nav-links-container">
+            <ul class="navbar__nav-links-container" id="navbar-list">
                 <li class="navbar__nav-item">
                     <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
                 <li class="navbar__nav-item">
@@ -80,7 +81,7 @@
             </h2>
 
 
-            <div class="cards-containers">
+            <div class="cards-containers" id="card-container">
 
                 <article class="card">
 
@@ -544,7 +545,9 @@
 
     </footer>
 
+    <script src="/js/index.js"></script>
     <script src="/js/header.js"></script>
+    <script src="/js/orders.js"></script>
     
 </body>
 </html>

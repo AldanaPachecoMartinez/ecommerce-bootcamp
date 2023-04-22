@@ -7,7 +7,7 @@ registerForm.addEventListener('submit', (evt) => {
     const el = evt.target.elements;
 
     if(el.password.value !== el.password2.value) {
-        console.warn(`El password no coinciden`)
+        showAlert(`Las contraseñas no coinciden`, 'warning')
         return
     }
 
@@ -26,6 +26,8 @@ registerForm.addEventListener('submit', (evt) => {
         email: el.email.value,
         password: el.password.value,
         password2: el.password2.value,
+        age: el.age.value,
+        role: 'USER_ROLE'
     }
     
     users.push(user);
@@ -43,14 +45,13 @@ function checkIfUserExist(users, emailToSearch) {
             if(usuario.email === emailToSearch) {
                 return true;
             }
-
+        })
+    console.log(indexOfUser)
+        
         if(indexOfUser !== -1){
             console.warn(`El usuario ya existe`);
-            return;
+            return true;
         }
-
-
-    })
     
     }
 
