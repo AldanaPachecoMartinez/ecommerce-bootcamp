@@ -31,6 +31,7 @@ opacity: 0;
 
 &__menu-btn:checked ~ &__nav-links-container {
     height: calc(100vh - 50px);
+    z-index: 150;
     }
 
 
@@ -145,7 +146,11 @@ z-index: 4;
 
     }
 
-    .navbar__nav-item{border-bottom: none !important;}
+    .navbar__nav-item{border-bottom: none !important;
+    text-align: center;
+
+    &:last-child{padding: .2rem;}
+}
     
     .user-navbar{order: 3;
     }

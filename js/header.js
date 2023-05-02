@@ -3,7 +3,6 @@ const navbarList = document.getElementById('navbar-list')
 
 
 function renderHeaderLinks() {
-
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
 if(currentUser) {
@@ -20,7 +19,7 @@ if(currentUser) {
     }
 
 }else {
-    const link = createLinkElement('login', 'Login');
+    const link = createLinkElement('login', 'Ingresar a mi cuenta');
     signIn.replaceChildren(link);
 }
 
@@ -40,7 +39,7 @@ function createLinkElement(path,text) {
 
     const link = document.createElement('a');
     link.classList.add('navbar__nav-link');
-    link.href = `pages/${path}/${path}.html`;
+    link.href = `/pages/${path}/${path}.html`;
     link.innerText = text;
     return link;
 }

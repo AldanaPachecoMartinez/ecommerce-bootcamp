@@ -12,44 +12,8 @@
 <body>
 
     <!-----------------  HEADER    -------------------->
-    <header>
+    <header id="header"></header>
 
-        <nav class="navbar">
-            <a href="/index.html" class="navbar__nav-link">
-                <img src="/assets/images/logo-marca-large.png" alt="Logo del E-commerce"  class="navbar__logo">
-            </a>
-
-            <div class="user-navbar">
-                <div class="user-navbar__cart-icon-container">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="user-navbar__cart-badge" id="cart-count"></div>
-                </div>
-                <div class="user-navbar__user-avatar-container">
-                    <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
-                </div>
-            </div>
-            
-            <input type="checkbox" class="navbar__menu-btn" id="menu-btn">
-            <label for="menu-btn" class="navbar__menu-label">
-                <span class="navbar__menu-icon"></span>
-            </label>
-
-
-            <ul class="navbar__nav-links-container" id="navbar-list">
-                <li class="navbar__nav-item">
-                    <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
-                <li class="navbar__nav-item">
-                    <a href="/pages/contact/contact.html" class="navbar__nav-link">Contacto</a></li>
-                <li class="navbar__nav-item">
-                    <a href="/pages/about-us/about-us.html" class="navbar__nav-link">Nosotros</a></li>
-                <li class="navbar__nav-item">
-                    <a href="/pages/register/register.html" class="navbar__nav-link">Registrarse</a></li>
-                <li class="navbar__nav-item" id="sign-in">
-                    <a href="/pages/login/login.html" class="navbar__nav-link">Login</a></li>
-            </ul>
-        </nav>
-
-    </header>
     <!-- TODO: Implementar carousel en 2do modulo  -->
 
     <!-------------------  MAIN   ---------------------->
@@ -77,7 +41,7 @@
             </header>
 
             <h2 class="section-cards__category">
-                Categoría: OFERTAS
+                Nuestros destacados
             </h2>
 
 
@@ -85,8 +49,12 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/sea-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/sea-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -97,7 +65,7 @@
                         <div class="card__price">
                             $ 2000
                         </div>
-                    </div>
+                
 
                     <div class="card__footer">
                         <div class="card__date">
@@ -107,13 +75,18 @@
                             <a href="#" class="card__btn">Detalle</a>
                         </div>
                     </div>
+                </div>
 
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/shapes-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/shapes-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -124,50 +97,58 @@
                         <div class="card__price">
                             $ 2700
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                        31/01/2023
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
-                        </div>
                     </div>
-
+                        
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/wind-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/wind-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             VELA ZESTASIÁ
                         </div>
-                        <p class="card__description">Llamada calidez, este diseño presenta notas amaderadas y florales. Ideal para crear esos instantes de encuentro con uno mismo y disfrutar de su luz. También disponible en versión mango y maracuyá, para perfumar cada rincón. </p>
+                        <p class="card__description">Llamada calidez, este diseño presenta notas amaderadas y florales. Ideal para crear esos instantes de encuentro con uno mismo y disfrutar de su luz. También disponible en su versión mango y maracuyá. </p>
                         <div class="card__price">
                             $ 3000
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
-                        </div>
                     </div>
-
+                        
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/circle-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/circle-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -178,23 +159,27 @@
                         <div class="card__price">
                             $ 3500
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
-                        </div>
                     </div>
-
+                        
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/knot-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/knot-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -205,14 +190,14 @@
                         <div class="card__price">
                             $ 3000
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -220,8 +205,12 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/large-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/large.candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -232,41 +221,45 @@
                         <div class="card__price">
                             $ 2500
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
-                        </div>
                     </div>
-
+                        
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/feather-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/feather-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             VELA AERÁKI
                         </div>
-                        <p class="card__description">Con su versatilidad busca reflejar el viento y con sus aceites aromáticos de verbena y limón, nos permite refrescar nuestros espacios. Está confeccionada en cera de soja, vertida y terminada a mano, cuidando cada uno de sus detalles. </p>
+                        <p class="card__description">Con su versatilidad busca reflejar el viento. Está confeccionada en cera de soja, con aceites aromáticos de verbena y limón. Vertida y terminada a mano, cuidando cada uno de sus detalles.</p>
                         <div class="card__price">
                             $ 3200
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -274,53 +267,61 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/lines-candle.webp " alt="Product Image" class="card__img">
+                        <img src="/assets/images/lines-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             VELA ZEI
                         </div>
-                        <p class="card__description">Trabajada artesanalmente y con estilo bombé, esta vela cuenta con aroma a té blanco y jengibre. Sumamente innovadora y delicada, es realizada con un pabilo de algodón 100% ecológico al igual que el resto de nuestros productos.</p>
+                        <p class="card__description">Trabajada artesanalmente y con estilo bombé, esta vela cuenta con aroma a té blanco y jengibre. Innovadora y delicada, es realizada con un pabilo de algodón 100% ecológico al igual que el resto de nuestros productos.</p>
                         <div class="card__price">
                             $ 3000
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
-                        </div>
                     </div>
-
+                        
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/arch-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/arch-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             VELA IRIS
                         </div>
-                        <p class="card__description">Siendo la combinación perfecta para decorar y perfumar, llega esta vela con su aroma a lavanda y tilo. Una fragancia que vamos a desear permanezca mucho tiempo en nuestro hogar. Incluye dos pabilos, para que al utilizarla no pierda su figura.</p>
+                        <p class="card__description">Siendo la combinación perfecta para decorar y perfumar, llega esta vela con su aroma a lavanda y tilo. Una fragancia que vamos a desear permanezca mucho tiempo. Incluye dos pabilos, para que al utilizarla no pierda su figura.</p>
                         <div class="card__price">
                             $ 2800
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -328,53 +329,61 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/water-candle.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/water-candle.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             VELA NERÓ
                         </div>
-                        <p class="card__description">Inspirada en el agua y con suaves notas de manzana y canela, esta vela de cera de soja conjuga delicadeza y sencillez. Sumamente combinable con cualquier ambiente y decoración. Disfrutala también en su versión vainilla que renueva nuestras energías en cualquier momento.</p>
+                        <p class="card__description">Inspirada en el agua y con suaves notas de manzana y canela, esta vela conjuga delicadeza y sencillez. Combinable con cualquier ambiente y decoración. Disfrutala también en su versión vainilla.</p>
                         <div class="card__price">
                             $ 2200
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
-                        </div>
                     </div>
-
+                        
                 </article>
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/sculpture.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/sculpture.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             ESCULTURA NIX
                         </div>
-                        <p class="card__description">Tallada a mano en una sola pieza de piedra blanca, esta escultura abstracta se entreteje creando una forma única y fluida. Su diseño se basa en la idea de un solo movimiento ininterrumpido que se entrelaza, brindando un acabado minimalista y moderno. Sus medidad son 30cm de alto y 45cm de ancho.</p>
+                        <p class="card__description">Tallada a mano en una sola pieza de piedra blanca, esta escultura abstracta se entreteje creando una forma única y fluida. Busca simular un movimiento continuo e infinito. Sus medidas son 30cm de alto y 45cm de ancho.</p>
                         <div class="card__price">
                             $ 9600
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -382,26 +391,30 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/deco-dish.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/deco-dish.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             BASE HELIOS
                         </div>
-                        <p class="card__description">Sumándose a la Línea Voltaire de arte y esculturas, llega esta base realizada en cerámica artesanal con acabado semi-laqueado y detalles en su base. Completamente hecha a mano, puede utilizarse como portavelas, centro de mesa, o como decoración en sí. Exclusiva y delicada.</p>
+                        <p class="card__description">Sumándose a la Línea Voltaire de arte y esculturas, llega esta base realizada en cerámica artesanal con acabado semi-laqueado y detalles en su pie. Completamente hecha a mano. Exclusiva y delicada.</p>
                         <div class="card__price">
                             $ 5800
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -409,26 +422,30 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/frame-art.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/frame-art-2.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
                         <div class="card__title">
                             CUADRO ZADIG
                         </div>
-                        <p class="card__description">Los protagonistas de cualquier habitación seguramente sean los movimientos y texturas plasmados en este cuadro, realizado en yeso, con técnicas únicas y contemporáneas. Una combinación refinada de figuras, arte y fluidez, con mucho para apreciar. Sus medidas son 40cm de alto y 60cm de ancho. Sumamente liviano y versátil.  </p>
+                        <p class="card__description">Los protagonistas de cualquier habitación seguramente sean los movimientos y texturas de este cuadro, realizado en yeso, con técnicas únicas y contemporáneas. Sus medidas son 40cm de alto y 60cm de ancho. </p>
                         <div class="card__price">
                             $ 18000
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -436,8 +453,12 @@
 
                 <article class="card">
 
+                    <div class="card__cart"><i class="fa-solid fa-cart-plus">
+                        <a href=""></a>
+                    </i></div>
+
                     <div class="card__header">
-                        <img src="/assets/images/frame-art2.webp" alt="Product Image" class="card__img">
+                        <img src="/assets/images/frame-art.png" alt="Product Image" class="card__img">
                     </div>
 
                     <div class="card__body">
@@ -448,14 +469,14 @@
                         <div class="card__price">
                             $ 25000
                         </div>
-                    </div>
-
-                    <div class="card__footer">
-                        <div class="card__date">
-                            31/01/2023
-                        </div>
-                        <div class="card__btn-container">
-                            <a href="#" class="card__btn">Detalle</a>
+                        
+                        <div class="card__footer">
+                            <div class="card__date">
+                                31/01/2023
+                            </div>
+                            <div class="card__btn-container">
+                                <a href="#" class="card__btn">Detalle</a>
+                            </div>
                         </div>
                     </div>
 
@@ -486,66 +507,10 @@
 
     <!------------------- FOOTER ---------------------->
 
-    <footer class="footer">
-
-        <div class="footer__column">
-            <ul class="footer__social-media-container">
-                <li class="footer__contact-item">
-                    <a href="#" class="footer__contact-link">
-                    <i class="fa-brands fa-facebook-f footer__contact-icon
-                    footer__contact-icon--facebook"></i>
-                        Facebook
-                    </a>
-                </li>
-                <li class="footer__contact-item">
-                    <a href="#" class="footer__contact-link">
-                    <i class="fa-brands fa-instagram footer__contact-icon footer__contact-icon--instagram"></i>
-                        Instagram
-                    </a>
-                </li>
-                <li class="footer__contact-item">
-                    <a href="#" class="footer__contact-link">
-                    <i class="fa-brands fa-linkedin footer__contact-icon footer__contact-icon--linkedin"></i>
-                        Linkedin
-                    </a>
-                </li>    
-            </ul>
-        </div>
-        <div class="footer__column">
-            <img src="/assets/images/logo-marca.png" alt="Company Logo" class="footer__logo" width="120px">
-            <h2 class="footer__company-name">
-                DE&CO <em>design</em>
-            </h2>
-            <p class="footer__copyrigth">
-                Todos los derechos reservados a DE&CO
-            </p>
-        </div>
-        <div class="footer__column">
-            <ul class="footer__contact-container">
-                <li class="footer__contact-item">
-                    <a href="#" class="footer__contact-link">
-                        <i class="fa-solid fa-phone footer__contact-icon"></i>
-                        Teléfono
-                    </a>
-                </li>
-                <li class="footer__contact-item">
-                    <a href="#" class="footer__contact-link">
-                        <i class="fa-solid fa-location-dot footer__contact-icon"></i>
-                        Localización
-                    </a>
-                </li>
-                <li class="footer__contact-item">
-                    <a href="#" class="footer__contact-link">
-                        <i class="fa-solid fa-envelope footer__contact-icon"></i>
-                        E-mail
-                    </a>
-                </li>    
-            </ul>
-        </div>
-
-    </footer>
+    <footer id="footer"></footer>
 
     <script src="/js/index.js"></script>
+    <script src="/js/header&footer.js"></script>
     <script src="/js/header.js"></script>
     <script src="/js/orders.js"></script>
     
