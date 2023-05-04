@@ -10,8 +10,9 @@ function renderizarHeader(id){
     </a>
 
     <div class="user-navbar">
-        <div class="user-navbar__cart-icon-container">
+        <div class="user-navbar__cart-icon-container" onclick='handleOrders()'>
             <i class="fa-solid fa-cart-shopping"></i>
+            <p id='cart-count' class='cart-count'></p>
         </div>
         <div class="user-navbar__user-avatar-container">
             <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
@@ -24,7 +25,7 @@ function renderizarHeader(id){
     </label>
 
 
-    <ul class="navbar__nav-links-container">
+    <ul class="navbar__nav-links-container" id="navbar-list">
         <li class="navbar__nav-item">
             <a href="/index.html" class="navbar__nav-link">Inicio</a></li>
         <li class="navbar__nav-item">
@@ -36,7 +37,9 @@ function renderizarHeader(id){
         <li class="navbar__nav-item" id="sign-in">
                 <a href="/pages/login/login.html" class="navbar__nav-link">Login</a></li>
     </ul>
-</nav>`
+</nav>
+
+`
 }
 
 function renderizarFooter(id){

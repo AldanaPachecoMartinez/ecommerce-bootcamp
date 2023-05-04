@@ -6,6 +6,8 @@
 
 @import "components/card";
 @import "components/alert";
+@import "components/order";
+
 
 @import "layout/header";
 @import "layout/footer";
@@ -15,5 +17,7 @@
 @import "pages/home";
 @import "pages/contact";
 @import "pages/register";
-@import "pages/login"
+@import "pages/login";
+@import "pages/admin-users";
+@import "pages/admin-products"
 

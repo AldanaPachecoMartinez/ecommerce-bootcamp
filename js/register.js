@@ -27,6 +27,7 @@ registerForm.addEventListener('submit', (evt) => {
         password: el.password.value,
         password2: el.password2.value,
         age: el.age.value,
+        bornDate: el.bornDate.value,
         role: 'USER_ROLE'
     }
     
@@ -46,7 +47,6 @@ function checkIfUserExist(users, emailToSearch) {
                 return true;
             }
         })
-    console.log(indexOfUser)
         
         if(indexOfUser !== -1){
             console.warn(`El usuario ya existe`);

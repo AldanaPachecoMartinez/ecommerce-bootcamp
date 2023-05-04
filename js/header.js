@@ -1,17 +1,34 @@
 const signIn = document.getElementById('sign-in');
 const navbarList = document.getElementById('navbar-list')
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+const allCarts=JSON.parse(window.localStorage.getItem('cart'))
+const products = JSON.parse(localStorage.getItem('products'));
+let userCart=allCarts?.filter((el)=> el.email === currentUser.email)
+
+
+if(!allCarts){
+    userCart=[{email:currentUser.email,order:[{product:1,quantity:2}]}]
+    window.localStorage.setItem('cart',JSON.stringify(userCart))
+}
+if(userCart.length===0){
+    allCarts.push({email:currentUser.email,order:[{product:1,quantity:2}]})
+    window.localStorage.setItem('cart',JSON.stringify(allCarts))
+}
 
 
 function renderHeaderLinks() {
-const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
     
 if(currentUser) {
     signIn.innerHTML = `<div onclick="logout()" class="navbar__nav-link">Logout</a>`;
     
     if(currentUser.role === 'ADMIN_ROLE') {
 
-    const adminProductLink = createListItemElement('admin-product', 'Admin Product');
-    const adminUserLink = createListItemElement('admin-user', 'Admin Users');
+    const adminProductLink = createListItemElement('admin-product', 'Controlar Stock');
+        adminProductLink.classList.add('navbar__nav-item');
+
+    const adminUserLink = createListItemElement('admin-user', 'Ver usuarios');
+        adminUserLink.classList.add('navbar__nav-item');
 
     navbarList.appendChild(adminProductLink);
     navbarList.appendChild(adminUserLink);
@@ -45,17 +62,11 @@ function createLinkElement(path,text) {
 }
 
 function logout() {
-
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
-    if(currentUser.role === 'ADMIN_ROLE') {
-        document.getElementById('admin-product').remove();
-        document.getElementById('admin-user').remove();
-    }
-    
+    window.location.href='/index.html'  
     localStorage.removeItem('currentUser');
     renderHeaderLinks(); 
 }
+
 
 
 renderHeaderLinks()

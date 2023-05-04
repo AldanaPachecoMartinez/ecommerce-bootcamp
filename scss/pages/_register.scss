@@ -146,7 +146,7 @@ border-bottom: 1px solid $color-text;
 }
 
 @media (min-width: 1000px) and (max-width: 1599px) {
-    .main{
+    .main-register{
         padding: .3rem; 
 
         .title-container{
@@ -179,7 +179,7 @@ border-bottom: 1px solid $color-text;
 }
 
 @media screen and (min-width: 1600px){
-    .main{
+    .main-register{
         padding: 0;
 
         .title-container{
