@@ -1,0 +1,128 @@
+#product-detail{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    padding: 2rem;
+    padding: 2rem 15vw 0 15vw;
+    flex: 1;
+    align-items: center;
+}
+.container-description{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    width: 40%;
+
+}
+
+.container-dtl__carrousel{
+    flex:1;
+}
+
+.container-description__footer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    justify-content: flex-start;
+    width: 100%;   
+}
+
+.order-dtl{
+    display: flex;
+    flex-direction: row;
+}
+
+.price-dtl{
+    font-size: 2rem;
+    font-weight: bold;
+flex: 1;}
+
+.detalle-dtl{
+    font-size: 1rem;
+}
+
+.stock-dtl{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-text-dtl{
+    font-size: .8rem;
+
+}
+
+#suma-products-detail{
+    width: 30px;
+    height: auto;
+    font-size: 1.2rem;
+    padding: .2rem 0;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+}
+
+.quitar-product{
+    padding: .3rem;
+    background-color: lightgrey;
+    width: 25px;
+    display: grid;
+    place-content: center;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+
+        &:hover{
+    transform: scale(1.05);
+    background-color: darkgrey;
+        }
+    
+}
+
+.agregar-product {
+    padding: .3rem;
+    background-color: lightgrey;
+    width: 25px;
+    display: grid;
+    place-content: center;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+
+        &:hover{
+    transform: scale(1.05);
+    background-color: darkgrey;
+        }
+}
+
+.container-btn-comprar{
+    width: 100%;
+}
+.container-description__btn-comprar{
+    width: 200px;
+    height: 45px;
+    border: 2px solid gray;
+    font-size: 1.2rem;
+
+    &:hover{
+        background-color: rgb(228, 228, 228);
+    border: 2px solid gray;
+    transform: scale(1.1);
+    }
+}
+
+.container-dtl__imgs{
+    max-width:100%;
+    height: auto;
+}
+
+.title-dtl{
+    width: 100%;
+}
+
+.subtitle-dtl{
+width:100%;
+}

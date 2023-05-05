@@ -1,19 +1,21 @@
-const signIn = document.getElementById('sign-in');
 const navbarList = document.getElementById('navbar-list')
+const products = JSON.parse(localStorage.getItem('products'));
+const usersList = JSON.parse(window.localStorage.getItem('users'));
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 const allCarts=JSON.parse(window.localStorage.getItem('cart'))
-const products = JSON.parse(localStorage.getItem('products'));
-let userCart=allCarts?.filter((el)=> el.email === currentUser.email)
-
+let userCart=allCarts?.filter((el)=> el?.email === currentUser?.email)||[]
+const signIn = document.getElementById('sign-in');
 
 if(!allCarts){
-    userCart=[{email:currentUser.email,order:[{product:1,quantity:2}]}]
+    userCart=[{email:currentUser?.email,order:[]}]
     window.localStorage.setItem('cart',JSON.stringify(userCart))
 }
 if(userCart.length===0){
-    allCarts.push({email:currentUser.email,order:[{product:1,quantity:2}]})
+    allCarts.push({email:currentUser.email,order:[]})
     window.localStorage.setItem('cart',JSON.stringify(allCarts))
 }
+
+
 
 
 function renderHeaderLinks() {
@@ -38,6 +40,7 @@ if(currentUser) {
 }else {
     const link = createLinkElement('login', 'Ingresar a mi cuenta');
     signIn.replaceChildren(link);
+    document.getElementById('cart-btn-header').setAttribute('disabled',true)
 }
 
 }

@@ -31,7 +31,8 @@
                 <div class="section-cards__products-search-container">
                     <div class="product-search">
                         <label for="" class="product-search__label">Encontrá aquí tu producto</label><br>
-                        <input type="text" class="product-search__input" id='search-product-index'><br>
+                        <input type="text" class="product-search__input" id='search-product-index' 
+                        onkeyup='handleBuscarIndex(event)' ><br>
                         <button class="product-search__btn" id="search-index" onclick="handleBuscarIndex(event)">Buscar</button>
                     </div>
                     <div class="section-cards__products-count">
@@ -72,10 +73,11 @@
 
     <footer id="footer"></footer>
 
-    <script src="/js/index.js"></script>
     <script src="/js/header&footer.js"></script>
     <script src="/js/header.js"></script>
+    <script src="/js/index.js"></script>
     <script src="/js/orders.js"></script>
+    <script src="/js/alert.js"></script>
     
 </body>
 </html>

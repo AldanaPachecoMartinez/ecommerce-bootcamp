@@ -10,10 +10,10 @@ function renderizarHeader(id){
     </a>
 
     <div class="user-navbar">
-        <div class="user-navbar__cart-icon-container" onclick='handleOrders()'>
+        <button class="user-navbar__cart-icon-container" onclick='handleOrders()' id='cart-btn-header'>
             <i class="fa-solid fa-cart-shopping"></i>
-            <p id='cart-count' class='cart-count'></p>
-        </div>
+            <p id='cart-count' class='cart-count'>0</p>
+        </button>
         <div class="user-navbar__user-avatar-container">
             <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
         </div>

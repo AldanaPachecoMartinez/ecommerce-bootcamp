@@ -3,10 +3,8 @@ const formChargeUser = d.getElementById('form-users');
 
 if(!window.localStorage.getItem('currentUser')){
     window.location.href ='/index.html';
-    console.log('salir')
 }
 
-let usersList = JSON.parse(window.localStorage.getItem('users'));
 
 const roleOptions=[
     {value:'ADMIN_ROLE',name:'ADMIN'},
@@ -21,7 +19,7 @@ formChargeUser.innerHTML = `
 
 <div class="input-box">
     <label for="nameInput">Nombre Completo</label><br>
-    <input type="text" name="name" id="nameInput" class= "input-form-products" max-length="100" min-length="4" required>
+    <input type="text" name="fullname" id="nameInput" class= "input-form-products" max-length="100" min-length="4" required>
 </div>
 
 <div class="input-box">
@@ -31,12 +29,12 @@ formChargeUser.innerHTML = `
 
 <div class="input-box">
     <label for="bornInput">Fecha de Nacimiento</label><br>
-    <input type="date" name="born" id="bornInput" class= "input-form-products" max="2023-05-10" min="1920-01-01" required>
+    <input type="date" name="bornDate" id="bornInput" class= "input-form-products" max="2023-05-10" min="1920-01-01" required>
 </div>
 
 <div class="input-box">
 <label for="roleSelector">Rol</label>
-<select name="rol" id="roleSelector" class ="role-selector">
+<select name="role" id="roleSelector" class ="role-selector">
 <optgroup>
     <option value="USER_ROLE">USER</option>
     <option value="ADMIN_ROLE">ADMIN</option>
@@ -48,13 +46,13 @@ formChargeUser.innerHTML = `
 
 <div class="input-box">
 <label for="createdInput">Fecha de Creación</label>
-<input type="date" name="createdAt" id="createdInput" class="input-form-products" max="2023-05-10" min="1920-01-01" required>
+<input type="date" name="creationDate" id="createdInput" class="input-form-products" max="2023-05-10" min="1920-01-01" required>
 </div>
 
 <div class = "container-btns-fp">
-<button type="submit" class="submit-btn" id="submit-btn" onclick="handleSubmitUser(event)">Agregar</button>
+<button type="submit" class="submit-btn" id="submit-btn">Agregar</button>
 
-<button class="clean-btn" id="clean-btn" onclick='handleClean()'>Limpiar</button>
+<button class="clean-btn" id="clean-btn" onclick='handleCleanUser()'>Limpiar</button>
 </div>
 `;
 function showFormUser() {
@@ -67,10 +65,9 @@ function removeFormUser() {
 }
 
 const handleCleanUser =()=>{
-    const formChargeUser= d.getElementById("product-form")
     formChargeUser.dataset.mode='add'
     formChargeUser['submit-btn'].innerHTML='Agregar'
-    d.getElementById('form-title').innerHTML='Agregar Producto'
+    d.getElementById('form-title').innerHTML='Agregar Usuario'
     formChargeUser.reset()
 }
 
@@ -78,17 +75,16 @@ const handleCleanUser =()=>{
 function handleSubmitUser(evt) {
     evt.preventDefault();
     const element = evt.target.elements;
-
     if(evt.target.dataset.mode==='add'){
         const newUser = {
-            fullname : element.name.value ,
+            fullname : element.fullname.value ,
             email : element.email.value,
-            bornDate : element.born.valueAsNumber ,
+            bornDate : element.bornDate.value ,
             password:element.email.value,
             password2: element.email.value,
-            role: element.rol.value,
+            role: element.role.value,
+            creationDate:element.creationDate.value
         };
-
         usersList.push(newUser)
         window.localStorage.setItem('users',JSON.stringify(usersList))
         renderizarUsuarios(usersList)
@@ -98,35 +94,38 @@ function handleSubmitUser(evt) {
         return;
     }
     if(evt.target.dataset.mode==='edit'){
-        let IndexToReplace=products.findIndex(e=>
-            e.id==element.id.value
+        let IndexToReplace=usersList.findIndex(e=>
+            e.email==element.email.value
         )
 
-        const newProduct = {
-            fullname : element.name.value ,
+        const newUser = {
+            fullname : element.fullname.value ,
             email : element.email.value,
-            bornDate : element.born.valueAsNumber ,
-            role: element.rol.value,
+            bornDate : element.bornDate.value ,
+            password:element.email.value,
+            password2: element.email.value,
+            role: element.role.value,
+            creationDate:element.creationDate.value
         };
 
-        products[IndexToReplace]=newProduct
-        window.localStorage.setItem('products',JSON.stringify(products))
-        renderProducts(products)
-        handleClean()
-        formContainer.classList.remove('visible')
+        usersList[IndexToReplace]=newUser
+        window.localStorage.setItem('users',JSON.stringify(usersList))
+        renderizarUsuarios(usersList)
+        handleCleanUser()
+        formChargeUser.classList.remove('visible')
 
         return;
     }
 }
 const handleEdit =(el)=>{
-    const formChargeUser= d.getElementById("product-form")
     formChargeUser.dataset.mode='edit'
     formChargeUser['submit-btn'].innerHTML='Editar'
-    d.getElementById('form-title').innerHTML='Editar Producto'
+    d.getElementById('form-title').innerHTML='Editar Usuario'
     formChargeUser.classList.add('visible')
-
     Object.entries(el).forEach(([key,value])=>{
-        formChargeUser[key].value=value
+        if(formChargeUser[key]){
+            formChargeUser[key].value=value
+        }
     })
     
 }
@@ -138,7 +137,9 @@ function handleDelete(i){
 function deleteUser(i){
     let newUsers = usersList.filter((el,inx)=>{return inx!==i})
     window.localStorage.setItem('users',JSON.stringify(newUsers))
-    renderizarUsuarios(newUsers)
+let refreshUsers = JSON.parse(window.localStorage.getItem('users'));
+
+    renderizarUsuarios(refreshUsers)
     
 }
 
@@ -176,9 +177,9 @@ let usersRows = usersList.map((el,i)=>{
         </optgroup>
         </select>
     </td>
-    <td></td>
+    <td>${el.creationDate}</td>
     <td>
-        <button class="user__action-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button class="user__action-btn" onclick='handleEdit(${JSON.stringify(el)})'><i class="fa-regular fa-pen-to-square"></i></button>
         <button class="user__action-btn" onclick="handleDelete(${i})">
             <i class="fa-solid fa-trash-can"></i>
         </button> 

@@ -173,7 +173,7 @@
     border-collapse: collapse;
     text-align: center;
     overflow: scroll;   
-    width: 95%;
+    width: 90%;
 }
 
 .products-table thead {
@@ -183,7 +183,7 @@
 }
 
 .products-table td {
-    max-width: 300px;
+    max-width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
@@ -269,6 +269,11 @@
 .btn-fav.favorite{background-color:   rgb(255, 185, 8);
 }
 
+.container-pt{
+    overflow-x: auto;
+    max-width: 100vw;
+}
+
 @media screen and (min-width: 1600px){
     .form-container.visible{
         top: 15%;
@@ -280,10 +285,7 @@
         max-width: 150px;
     }
 
-    .container-pt{
-        overflow-x: scroll;
-        max-width: 100vw;
-    }
+   
     .products-table{
         margin: 1rem .5rem;
     }

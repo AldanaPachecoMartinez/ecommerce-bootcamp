@@ -1,8 +1,14 @@
 const badgeHTML = document.getElementById('cart-count');
 function actualizarBadge() {
     let actualCart=JSON.parse(window.localStorage.getItem('cart'))
+    let userCart=actualCart?.filter((el)=> el?.email === currentUser?.email)
     
-    badgeHTML.innerText = actualCart[0].order.reduce((acc, producto) => acc += producto.quantity , 0);
+    badgeHTML.innerText = userCart[0].order.reduce((acc, producto) => acc += producto.quantity , 0);
+
+    if(!currentUser){
+        badgeHTML.setAttribute('hidden',true)
+    }
+
     }
 
 
@@ -25,6 +31,12 @@ function handleOrders(){
 function renderOrder(userCart){
     let totalAmount=0
     let mainOrders = document.getElementById('main-orders')
+    if(!mainOrders){
+        mainOrders=document.createElement('div')
+        mainOrders.id='main-orders'
+        mainOrders.classList='main-orders-container'
+        document.body.appendChild(mainOrders)
+}
 
     let productsInOrder = userCart[0].order.map((el,i)=>{
         let product = products.filter((prod,idx)=>prod.id==el?.product)[0]
@@ -51,21 +63,23 @@ function renderOrder(userCart){
     let orderFooter = `
     <div class="order-footer">
     <p class="total-amount-order">$${totalAmount}</p>
-    <button class="check-out-btn">Check Out</button>
+    <button class="check-out-btn" onclick= "showAlert('Gracias por tu compra! En unos instantes nos comunicaremos con usted.', 'ok', 5000)">Finalicemos la compra</button>
 </div>
     `
 
     let orderHeader = `
     <div class='order-header-container'>
     <i class="fa-solid fa-xmark fa-xl" onclick='closeOrder()'></i>
+    <p class= "text-order">Hola <strong>${currentUser.fullname}</strong>! Este es el detalle de tu compra: </p>
     </div>
     `
 
 
-    mainOrders.innerHTML= orderHeader + '<div class="order-prodcuts-container">'+ productsInOrder.join('') + '</div>' + orderFooter 
+    mainOrders.innerHTML= orderHeader + '<div class="order-products-container">'+ productsInOrder.join('') + '</div>' + orderFooter 
 }
 
 function modifyQuantity(operator,i){
+    if(userCart[0].order[i].quantity === 0 && operator=== '-') { return}
     userCart[0].order[i].quantity+= (operator==='+') ? 1 : -1
     window.localStorage.setItem('cart',JSON.stringify(userCart))
     renderOrder(userCart)

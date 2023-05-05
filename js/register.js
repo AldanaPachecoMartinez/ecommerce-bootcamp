@@ -34,8 +34,13 @@ registerForm.addEventListener('submit', (evt) => {
     users.push(user);
     
     localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('currentUser', JSON.stringify(user));
+
 
     showAlert('El usuario se registro correctamente', 'succes');
+        window.location.href='/index.html'
+        window.location.reload()
+
 
 })
 

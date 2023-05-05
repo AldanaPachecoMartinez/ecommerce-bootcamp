@@ -1,10 +1,10 @@
 .main-orders-container{
     background-color: rgb(234, 234, 234);
     transition: all .4s ease-in;
-    
+    display: none;
     visibility: hidden;
     right: -400px;
-   
+
 }
 
 .main-orders-container.visible {
@@ -17,7 +17,7 @@
     right: 0;
     z-index: 21;
     height: 100vh;
-    width: 35vw;
+    width: 40vw;
     max-width: 400px;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,11 @@
 
         }
 
-        .order-prodcuts-container{
+.text-order{
+    margin: 1rem .5rem .6rem;
+}
+
+.order-products-container{
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -61,11 +65,13 @@
 }
 
 .order-item-name{
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     }
 
 .order-item-price{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    width: 20%;
+    text-align: center;
 }
 
 .order-quantity-container{
@@ -78,8 +84,10 @@
 }
 
 .order-item-quantity{
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: .3rem .5rem;
+    width: 2rem;
+    text-align: center;
 }
 
 
@@ -87,13 +95,15 @@
 .order-quantity-less{
     padding: .3rem;
     background-color: lightgrey;
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     display: grid;
     place-content: center;
     border: none;
     border-radius: 4px;
     font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
 
         &:hover{
     background-color: rgb(154, 154, 154);
@@ -104,12 +114,13 @@
 .order-quantity-more{
     background-color: lightgrey;
     font-weight: bold;
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     display: grid;
     place-content: center;
     border: none;
     border-radius: 4px;
+    
 
         &:hover{
     background-color:rgb(154, 154, 154);
@@ -121,7 +132,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 60%;
+    width: 50%;
     justify-content: center;
     align-items: center;
 }
@@ -140,12 +151,13 @@
 .order-item-delete{
 border: none;
 color: rgb(69, 69, 69);
-font-size: 1rem;
+font-size: .9rem;
 text-align: center;
+justify-content: center;
 font-weight: bold;
 border-radius: 80px;
-height: 35px;
-width: 35px;
+height: 25px;
+width: 25px;
 display: grid;
 place-content: center;
 background-color: transparent;
@@ -158,14 +170,18 @@ margin: 0 0 0 0.5rem;
 }
 
 .check-out-btn{
-    width: 90px;
-    height: 40px;
+    width: 210px;
+    height: 45px;
     border-radius: 5px;
     border: none;
+    background-color: transparent;
+    color: grey;
+    font-weight: 600;
+    text-transform: uppercase;
     border: 2px solid grey;
+    padding: .7rem;
 
     &:hover{
-    box-shadow: inset 0px 0px 20px 0px rgba(73, 155, 255, 0.673);
 transform: scale(1.1);
     }
 

@@ -1,5 +1,5 @@
 
-function showAlert(text, type = 'sucess') {
+function showAlert(text, type = 'sucess',time=3000) {
     
         
     const alertDialog = document.createElement('div');
@@ -15,6 +15,9 @@ function showAlert(text, type = 'sucess') {
     if(type === 'warning') {
         alertDialog.innerHTML = '<i class="fa-solid fa-circle-exclamation fa-beat-fade"></i>' + '<p class= "alert-text">' + text + '</p>';
     }
+    if(type === 'ok') {
+        alertDialog.innerHTML = '<i class="fa-regular fa-circle-check fa-xl"></i>' + '<p class= "alert-text">' + text + '</p>';
+    }
 
     setTimeout(() => alertDialog.classList.add('show'), 10)
 
@@ -25,7 +28,7 @@ function showAlert(text, type = 'sucess') {
             alertDialog.remove();
         }, 1000)
 
-    }, 3000);
+    }, time);
 
 }  
 
