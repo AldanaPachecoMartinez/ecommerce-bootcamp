@@ -32,11 +32,10 @@
                     <div class="product-search">
                         <label for="" class="product-search__label">Encontrá aquí tu producto</label><br>
                         <input type="text" class="product-search__input" id='search-product-index' 
-                        onkeyup='handleBuscarIndex(event)' ><br>
+                        onkeyup='handleBuscarIndex(event)' ><button id="clean-search-input" class="index-limpiar-b" onclick=" cleanSearchIndex()">x</button><br>
                         <button class="product-search__btn" id="search-index" onclick="handleBuscarIndex(event)">Buscar</button>
                     </div>
                     <div class="section-cards__products-count">
-                        Se encontraron X productos
                     </div>
                 </div>
             </header>

@@ -94,6 +94,8 @@ z-index: 15;
 
 
 &__nav-item{padding: 1.25rem 1rem;
+    width: 40%;
+    text-align: center;
 
     &:not(:last-child) {
         border-bottom: 1px solid $color-text;

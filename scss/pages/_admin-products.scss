@@ -276,20 +276,30 @@
 
 @media screen and (min-width: 1600px){
     .form-container.visible{
+        width: 25%;
         top: 15%;
     }
 } 
+
+@media (min-width:600px) and (max-width: 1500px) {
+    .form-container.visible{
+        width: 50%;
+        top: 5%;
+    }
+}
 
 @media (min-width: 0px) and (max-width: 599px){
     .products-table td {
         max-width: 150px;
     }
-
-   
     .products-table{
         margin: 1rem .5rem;
     }
     #search-product{
         width: 90%;
+    }
+    .form-container.visible{
+        width: 85%;
+        top: 3%;
     }
 }
