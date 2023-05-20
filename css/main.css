@@ -457,6 +457,7 @@ html {
   flex-direction: column;
   flex: 1;
   transition: all 0.4s ease-in;
+  padding: 0.3rem;
 }
 
 .text-order {
@@ -533,10 +534,15 @@ html {
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
 }
 .order-quantity-less:hover {
   background-color: rgb(154, 154, 154);
   transform: scale(1.05);
+}
+.order-quantity-less:visited {
+  color: rgb(54, 54, 54);
 }
 
 .order-quantity-more {
@@ -548,10 +554,15 @@ html {
   place-content: center;
   border: none;
   border-radius: 4px;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
 }
 .order-quantity-more:hover {
   background-color: rgb(154, 154, 154);
   transform: scale(1.05);
+}
+.order-quantity-more:visited {
+  color: rgb(54, 54, 54);
 }
 
 .order-column-1 {
@@ -589,6 +600,7 @@ html {
   background-color: transparent;
   border: 0.5px solid gray;
   margin: 0 0 0 0.5rem;
+  cursor: pointer;
 }
 .order-item-delete:hover {
   transform: scale(1.1);
@@ -635,6 +647,30 @@ html {
   cursor: pointer;
 }
 
+@media (min-width: 380px) and (max-width: 539px) {
+  .main-orders-container.visible {
+    width: 70vw;
+    padding: 0.5rem;
+  }
+  .order-item-price {
+    margin: 0.3rem;
+  }
+  .order-item-name {
+    margin-bottom: 0.3rem;
+  }
+}
+@media screen and (max-width: 379px) {
+  .main-orders-container.visible {
+    width: 85vw;
+    padding: 0.5rem;
+  }
+}
+@media (min-width: 540px) and (max-width: 1499px) {
+  .main-orders-container.visible {
+    width: 70vw;
+    padding: 0.4rem;
+  }
+}
 .header {
   position: fixed;
   width: 100%;
@@ -835,7 +871,6 @@ html {
   }
 }
 .main {
-  padding: 1.5rem 0;
   background-color: rgb(247, 247, 247);
 }
 
@@ -1134,6 +1169,7 @@ html {
   font-family: "Libre Baskerville", serif;
   font-size: 1.6rem;
   padding: 0.5rem;
+  margin-top: 1.5rem;
 }
 .section-cards__title-container {
   padding: 0 2rem;
@@ -1246,6 +1282,10 @@ html {
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  color: rgb(54, 54, 54);
+}
+.index-limpiar-b:visited {
+  color: rgb(54, 54, 54);
 }
 
 @media screen and (min-width: 600px) {
@@ -1650,7 +1690,7 @@ body {
 }
 .login-body .login-main .login-title {
   width: 95%;
-  margin-bottom: 1rem;
+  margin: 1.2rem 0;
 }
 .login-body .login-main .login-form {
   padding: 2.2rem;
@@ -1760,7 +1800,7 @@ body {
   color: rgb(114, 114, 114);
   border: 2px solid rgb(114, 114, 114);
   border-radius: 15px;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
   font-size: 1rem;
 }
 .formular-charge:hover {
@@ -1980,7 +2020,7 @@ body {
   color: rgb(114, 114, 114);
   border: 2px solid rgb(114, 114, 114);
   border-radius: 15px;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
   font-size: 1rem;
 }
 .btn-agregar-product:hover {
@@ -2241,10 +2281,14 @@ body {
   background-color: transparent;
   color: grey;
   margin-top: 1.3rem;
+  cursor: pointer;
 }
 .container-description__btn-comprar:hover {
   border: 2px solid gray;
   transform: scale(1.1);
+}
+.container-description__btn-comprar:visited {
+  color: grey;
 }
 
 .order-dtl {
@@ -2296,10 +2340,15 @@ body {
   border: none;
   border-radius: 4px;
   font-weight: bold;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
 }
 .quitar-product:hover {
   transform: scale(1.05);
   background-color: darkgrey;
+}
+.quitar-product:visited {
+  color: rgb(54, 54, 54);
 }
 
 .agregar-product {
@@ -2311,10 +2360,15 @@ body {
   border: none;
   border-radius: 4px;
   font-weight: bold;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
 }
 .agregar-product:hover {
   transform: scale(1.05);
   background-color: darkgrey;
+}
+.agregar-product:visited {
+  color: rgb(54, 54, 54);
 }
 
 .container-btn-comprar {

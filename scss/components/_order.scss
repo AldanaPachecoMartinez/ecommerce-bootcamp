@@ -23,6 +23,7 @@
     flex-direction: column;
     flex: 1;
     transition: all .4s ease-in;
+    padding: .3rem;
 
         }
 
@@ -104,10 +105,16 @@
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
+    color: $color-text;
+    cursor: pointer;
 
         &:hover{
     background-color: rgb(154, 154, 154);
     transform: scale(1.05);
+        }
+
+        &:visited{
+            color: $color-text;
         }
 }
 
@@ -120,11 +127,16 @@
     place-content: center;
     border: none;
     border-radius: 4px;
-    
+    color: $color-text;
+    cursor: pointer;
 
         &:hover{
     background-color:rgb(154, 154, 154);
     transform: scale(1.05);
+        }
+
+        &:visited{
+            color: $color-text;
         }
 }
 
@@ -163,6 +175,8 @@ place-content: center;
 background-color: transparent;
 border: 0.5px solid gray;
 margin: 0 0 0 0.5rem;
+cursor: pointer;
+
 &:hover{
 
     transform: scale(1.1);
@@ -209,4 +223,33 @@ font-size: 1.5rem;
 
 .fa-xmark{
     cursor: pointer;
+}
+
+@media (min-width: 380px) and (max-width: 539px){
+    .main-orders-container.visible{
+        width: 70vw;
+        padding: .5rem;
+    }
+
+    .order-item-price{
+        margin: .3rem;
+    }
+
+    .order-item-name{
+        margin-bottom: .3rem;
+    }
+}
+
+@media screen and (max-width:379px){
+    .main-orders-container.visible{
+        width: 85vw;
+        padding: .5rem;
+    }
+}
+
+@media (min-width: 540px) and (max-width: 1499px){
+    .main-orders-container.visible{
+        width: 70vw;
+        padding: .4rem;
+    }
 }

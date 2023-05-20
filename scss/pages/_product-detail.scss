@@ -75,10 +75,15 @@
         background-color: transparent;
         color: grey;
         margin-top: 1.3rem;
+        cursor: pointer;
     
         &:hover{
         border: 2px solid gray;
         transform: scale(1.1);
+        }
+
+        &:visited{
+            color: grey;
         }
     }
 }
@@ -131,10 +136,16 @@ flex: 1;}
     border: none;
     border-radius: 4px;
     font-weight: bold;
+    color: $color-text;
+    cursor: pointer;
 
         &:hover{
     transform: scale(1.05);
     background-color: darkgrey;
+        }
+
+        &:visited{
+            color: $color-text;
         }
     
 }
@@ -148,10 +159,16 @@ flex: 1;}
     border: none;
     border-radius: 4px;
     font-weight: bold;
+    color: $color-text;
+    cursor: pointer;
 
         &:hover{
     transform: scale(1.05);
     background-color: darkgrey;
+        }
+
+        &:visited{
+            color: $color-text;
         }
 }
 
