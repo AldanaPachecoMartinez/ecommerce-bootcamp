@@ -20,8 +20,10 @@
 
         <button class="btn-agregar-product" onclick="showForm()">Agregar producto <i class="fa-solid fa-arrow-right-from-bracket fa-beat"></i></button>
         <div id="form-container" class="form-container"></div>
-        <div id="search-product"></div>
         
+        <div id="search-product"></div>
+        <div id="search-product-result"></div>
+
         <div class="container-pt">
         <table id="products-table" class="products-table">
                 <thead>
@@ -42,12 +44,14 @@
                 </tbody>
             </table>
         </div>
+        <div id="paginacion-products"></div>
     </main>
 
     <footer id="footer"></footer>   
 
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/header&footer.js"></script>
 <script src="/js/header.js"></script>
     <script src="/js/isAdmin.js"></script>

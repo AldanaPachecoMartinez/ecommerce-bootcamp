@@ -90,6 +90,35 @@
     width: 60%;
 }
 
+#users-search-input{
+    background-color: transparent;
+    outline: none;
+    border:none ;
+    border-bottom: 2px solid $color-text-light;
+    padding: .5rem .4rem .3rem;
+    font-size: 1rem;
+    margin-right: -4px;
+    width: 60%;
+}
+
+#search-users{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: .5rem;
+}
+
+#btn-search-users{
+    padding: .3rem;
+    border: none;
+    border-bottom: 2px solid $color-text-light;
+    font-size: .9rem;
+    text-transform: uppercase;
+    color: $color-table;
+    font-style: italic;
+    cursor: pointer;
+}
+
 @media (min-width:360px) and (max-width: 599px){
     #role-selector{
         width: 100%;

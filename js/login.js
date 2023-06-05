@@ -1,33 +1,25 @@
 const form = document.getElementById('loginForm');
 
-loginForm.addEventListener('submit', (event) => {
+loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const { email, password } = loginForm.elements;
 
-    const users = JSON.parse(localStorage.getItem('users')) || [] ;
+    try {
+        const dataBody = { email: email.value, password: password.value };
+        const resp = await axios.post(`${URL}/login`, dataBody );
+        const {token, user, msg} = resp.data;
 
-    const user = users.find((usr) => {
-        if(usr.email === email.value) {
-            return true;
-        }
-        return false; 
-    })
-
-    if(!user || user.password !== password.value) {
-        showAlert('Los datos ingresados no son correctos', 'error');
-        return
-    }
-
-
+        localStorage.setItem('token', token);
         localStorage.setItem('currentUser', JSON.stringify(user));
-        showAlert(`Login correcto te redireccionaremos en unos instantes..`);
 
+        showAlert(msg);
         setTimeout(() => {
-            window.location.href = '/index.html'
+            window.location.href = '/index.html'}, 2500)
 
-
-}, 1500)
-
+    } catch (error) {
+        console.log(error)
+        return showAlert(error.response.data.msg, 'error');
+    }
 
 })

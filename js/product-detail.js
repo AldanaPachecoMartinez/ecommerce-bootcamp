@@ -19,7 +19,7 @@ const productDetail = document.getElementById('product-detail').innerHTML=
         <div class="stock-dtl">
         <div class="order-dtl">
             <button class="quitar-product" onclick='changeQuantity("-")'>-</button>
-            <input id="suma-products-detail" value=0 />
+            <input id="suma-products-detail" value=1 disabled/>
             <button class="agregar-product" onclick='changeQuantity("+")'>+</button>
             </div>
             <p class="stock-text-dtl">${product.stock} disponibles</p>
@@ -36,7 +36,7 @@ const productDetail = document.getElementById('product-detail').innerHTML=
 `
 
 function addToCart(product){
-    let cantidad=document.getElementById('suma-products-detail').value
+    let cantidad= Number(document.getElementById('suma-products-detail').value)
 
     if(!currentUser){
         showAlert('Para poder agregar productos a su carro de compras, debe ingresar a su cuenta. Si aún no posee una, puede hacerlo en la sección REGISTRARSE del menú superior.',null,8000)
@@ -53,7 +53,7 @@ let userCart=allCarts?.filter((el)=> el?.email === currentUser?.email)||[]
     let index = (userCart[0].order.findIndex(el=>el.product==product.id))
     
     if(index !== -1){
-        userCart[0].order[index].quantity++ 
+        userCart[0].order[index].quantity+=cantidad 
     }else{
         userCart[0].order.push({
             product:product.id,
@@ -69,7 +69,7 @@ let userCart=allCarts?.filter((el)=> el?.email === currentUser?.email)||[]
 
 
 function changeQuantity(operator){
-if(document.getElementById('suma-products-detail').value==='0' && operator==='-'){return}
+if(document.getElementById('suma-products-detail').value==='1' && operator==='-'){return}
 
     cantidad= Number(document.getElementById('suma-products-detail').value)
     document.getElementById('suma-products-detail').value= cantidad += (operator==='+') ? 1 :-1

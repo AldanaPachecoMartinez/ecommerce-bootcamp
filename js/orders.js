@@ -22,7 +22,6 @@ function handleOrders(){
             
         document.body.appendChild(mainOrders)
     }else{
-        //si existe
         mainOrders.classList.toggle('visible')
     }
     renderOrder(userCart)
@@ -70,7 +69,7 @@ function renderOrder(userCart){
     let orderHeader = `
     <div class='order-header-container'>
     <i class="fa-solid fa-xmark fa-xl" onclick='closeOrder()'></i>
-    <p class= "text-order">Hola <strong>${currentUser.fullname}</strong>! Este es el detalle de tu compra: </p>
+    <p class= "text-order">Hola <strong>${currentUser.fullName}</strong>! Este es el detalle de tu compra: </p>
     </div>
     `
 

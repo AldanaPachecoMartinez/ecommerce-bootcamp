@@ -22,12 +22,12 @@
             
             <div class="form-content__item">
                 <label for="idInputName">Nombre Completo </label> <br>
-                <input type="text" name="fullName" id="idInputName" minlength="8" maxlength="50"  autofocus autocomplete="on" placeholder="Jose Francisco Perez" required class="form-content__input form-content__input--fullname">
+                <input type="text" name="fullName" id="idInputName" minlength="3" maxlength="150"  autofocus autocomplete="on" placeholder="Jose Francisco Perez" required class="form-content__input form-content__input--fullname">
             </div>
 
             <div class="form-content__item">
                 <label for="emailInput">Email</label> <br>
-                <input type="email" name="email" id="emailInput" placeholder="example@email.com" minlength="8" maxlength="45" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="example@gmail.com" required class="form-content__input form-content__input--email">
+                <input type="email" name="email" id="emailInput" placeholder="example@email.com" minlength="8" maxlength="45" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" placeholder="example@gmail.com" required class="form-content__input form-content__input--email">
             </div>
 
             <div class="form-content__item">
@@ -43,12 +43,12 @@
         
             <div class="form-content__item">
                 <label for="ageInput">Edad</label><br>
-                <input type="number" name="age" id="ageInput"  min="12" max="130" required class="form-content__input">
+                <input type="number" name="age" id="ageInput"  min="16" max="120" required class="form-content__input">
             </div>
 
             <div class="form-content__item">
                 <label for="bornDateInput">Fecha de nacimiento</label><br>
-                <input type="date" id="bornDateInput" name="bornDate" max="2023-05-10" min="1920-01-01" class="form-content__input form-content__input--borndate">
+                <input type="date" id="bornDateInput" name="bornDate" min="1920-01-01" class="form-content__input form-content__input--borndate">
             </div>
 
             <div class="form-content__item">
@@ -324,7 +324,7 @@
             </div>
 
             <div  class="form-content__btn-container">
-                <button class="form-content__btn-enviar" id="registerSubmit"><i class="fa-solid fa-arrow-right"></i>Registarme</button>
+                <button class="form-content__btn-enviar" id="registerSubmit" type="submit"><i class="fa-solid fa-arrow-right"></i>Registarme</button>
             </div>
             </form>
         </section>
@@ -339,6 +339,7 @@
 
     <footer id="footer"></footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/header&footer.js"></script>
     <script src="/js/header.js"></script>
     <script src="/js/register.js"></script>

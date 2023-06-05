@@ -1,19 +1,6 @@
 const cardsContainer = document.getElementById('card-container');
 
 
-if(!usersList || usersList.length===0) {
-    window.localStorage.setItem('users',JSON.stringify([{
-        fullname:'Admin',
-        email:'admin@admin.com',
-        password:'Alfabeta1.',
-        role:'ADMIN_ROLE',
-        bornDate:new Date().toLocaleDateString().slice(0,10),
-        creationDate:new Date().toLocaleDateString().slice(0,10)
-    }]))
-    window.location.reload()
-
-}
-
 if (!products || products.length===0) {
     let initProducts = [
         {

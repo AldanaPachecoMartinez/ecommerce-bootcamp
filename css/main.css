@@ -449,7 +449,7 @@ html {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 21;
+  z-index: 210;
   height: 100vh;
   width: 40vw;
   max-width: 400px;
@@ -671,10 +671,11 @@ html {
     padding: 0.4rem;
   }
 }
-.header {
-  position: fixed;
+#header {
+  position: sticky;
   width: 100%;
   top: 0;
+  z-index: 200;
 }
 
 .navbar {
@@ -682,7 +683,6 @@ html {
   background-color: #e3e3e3;
   display: flex;
   align-items: center;
-  position: relative;
 }
 .navbar__logo {
   height: 42px;
@@ -778,9 +778,13 @@ html {
   padding: 0 1rem;
 }
 .user-navbar__user-avatar {
-  width: 28px;
+  width: 35px;
+  height: 35px;
   margin-right: 0;
   cursor: pointer;
+  border-radius: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .user-navbar__cart-icon-container {
   font-size: 1.5rem;
@@ -801,6 +805,65 @@ html {
   color: white;
   font-size: 0.5rem;
   text-align: center;
+}
+
+.menu-user {
+  display: none;
+}
+.menu-user__container {
+  text-align: center;
+}
+.menu-user__item {
+  list-style-type: none;
+  margin: 1rem 0;
+  border-bottom: 1.5px solid rgb(193, 193, 193);
+  width: 100%;
+}
+.menu-user__item:hover {
+  transform: scale(1.03);
+  transition: 0.2s ease-in;
+}
+.menu-user__link {
+  margin-bottom: 0.5rem;
+}
+.menu-user__link:visited {
+  color: rgb(54, 54, 54);
+}
+
+.menu-user.visible {
+  display: flex;
+  background-color: rgba(210, 210, 210, 0.8);
+  transition: all 0.4s ease-in;
+  padding: 0.7rem;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  width: 25%;
+  height: auto;
+  text-align: center;
+  justify-content: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.close-menu {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+  color: rgb(88, 88, 88);
+  font-size: 1rem;
+}
+.close-menu:hover {
+  transform: scale(1.03);
+  transition: 0.2s ease-in;
+  font-weight: 700;
+}
+
+.icon-menu {
+  color: rgb(114, 114, 114);
+  margin-right: 0.3rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -831,6 +894,11 @@ html {
 }
 .footer__column {
   padding: 0.9rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .footer__contact-link {
   color: rgb(114, 114, 114);
@@ -1334,7 +1402,7 @@ html {
 }
 body {
   background-color: rgb(240, 240, 240);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1878,6 +1946,35 @@ body {
   width: 60%;
 }
 
+#users-search-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(114, 114, 114);
+  padding: 0.5rem 0.4rem 0.3rem;
+  font-size: 1rem;
+  margin-right: -4px;
+  width: 60%;
+}
+
+#search-users {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: 0.5rem;
+}
+
+#btn-search-users {
+  padding: 0.3rem;
+  border: none;
+  border-bottom: 2px solid rgb(114, 114, 114);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: rgb(88, 88, 88);
+  font-style: italic;
+  cursor: pointer;
+}
+
 @media (min-width: 360px) and (max-width: 599px) {
   #role-selector {
     width: 100%;
@@ -2178,6 +2275,76 @@ body {
 .container-pt {
   overflow-x: auto;
   max-width: 100vw;
+}
+
+#images-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.image-sel {
+  max-width: 120px;
+  height: 110px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.img-card {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0.5rem 0.2rem;
+}
+.img-card__del {
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  text-shadow: 1px 1px gray;
+}
+.img-card__del:hover {
+  transform: scale(1.1);
+}
+.img-card__fav {
+  background-color: transparent;
+  color: white;
+  border: none;
+  position: absolute;
+  right: 35%;
+  font-size: 1.5rem;
+  opacity: 75%;
+  bottom: 16px;
+  cursor: pointer;
+  text-shadow: 1px 1px gray;
+}
+.img-card__fav:hover {
+  transform: scale(1.1);
+}
+
+.add-image {
+  background-color: transparent;
+  color: rgb(159, 159, 159);
+  opacity: 50%;
+  font-size: 2.3rem;
+  border: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.add-image:hover {
+  transform: scale(1.1);
+}
+
+.img-aclaration {
+  font-size: 1rem;
+  color: rgb(159, 159, 159);
+  font-style: italic;
 }
 
 @media screen and (min-width: 1600px) {
@@ -2495,4 +2662,87 @@ body {
   .contact-footer__btn {
     margin-top: 0.5rem !important;
   }
+}
+.profile__item:not(:first-child) {
+  background-color: #e3e3e3;
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+}
+.profile__item:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile__item--email {
+  margin: 0 !important;
+}
+.profile__img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1rem;
+  border-radius: 1000px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profile__input {
+  border: none !important;
+  text-align: center;
+}
+.profile__input::-webkit-input-placeholder {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+.profile__gender {
+  justify-content: center;
+}
+.profile__encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-name {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  height: 25px;
+}
+.input-name:hover {
+  border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+}
+.input-name:focus {
+  border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+}
+
+.input-email {
+  margin-top: 0.3rem;
+}
+.input-email:hover {
+  border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+}
+.input-email:focus {
+  border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+}
+
+.submit-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 0.8rem;
+}
+
+.submit-btn-profile {
+  padding: 0.8rem;
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid rgb(114, 114, 114);
+  border-bottom: 1px solid rgb(114, 114, 114);
+  color: rgb(114, 114, 114);
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.submit-btn-profile:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in;
 }/*# sourceMappingURL=main.css.map */

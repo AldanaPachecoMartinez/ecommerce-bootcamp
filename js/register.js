@@ -1,64 +1,44 @@
 const registerForm = document.getElementById('registerForm');
 const registerBtn = document.getElementById('registerSubmit');
-
-registerForm.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-
-    const el = evt.target.elements;
-
+    
+    registerForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const el = event.target.elements;
+        const { fullName,email, password,age,bornDate } = registerForm.elements;
+        const role='USER_ROLE'
+console.log(country)
     if(el.password.value !== el.password2.value) {
         showAlert(`Las contraseñas no coinciden`, 'warning')
         return
     }
-
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    const userExist = checkIfUserExist(users, el.email.value)
     
-    if(userExist) {
-        showAlert(`El email ya existe`, 'error')
-        return;
-    }
+    try {
+        const dataBody = { fullName:fullName.value, email: email.value, password: password.value,age:age.value,bornDate:bornDate.value,role};
 
-    
-    const user = {
-        fullname: el.fullName.value,
-        email: el.email.value,
-        password: el.password.value,
-        password2: el.password2.value,
-        age: el.age.value,
-        bornDate: el.bornDate.value,
-        role: 'USER_ROLE'
-    }
-    
-    users.push(user);
-    
-    localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('currentUser', JSON.stringify(user));
+        const resp = await axios.post(`${URL}/users`, dataBody );
+        console.log(resp)
+        const {msg,status} = resp.data;
 
-
-    showAlert('El usuario se registro correctamente', 'succes');
-        window.location.href='/index.html'
-        window.location.reload()
-
-
-})
-
-
-function checkIfUserExist(users, emailToSearch) {
-    
-        const indexOfUser = users.findIndex(usuario => { 
-            if(usuario.email === emailToSearch) {
-                return true;
-            }
-        })
-        
-        if(indexOfUser !== -1){
-            console.warn(`El usuario ya existe`);
-            return true;
+        if(resp.status===201){
+            showAlert(msg, 'succes');
+            setTimeout(() => {
+                window.location.href = '/index.html'}, 2500)
         }
-    
+    } catch (error) {
+            showAlert(error.response.data.msg, 'error');
+            return
     }
+    })
+
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1; 
+    month = month < 10 ? '0' + month : month; 
+    let day = currentDate.getDate();
+    day = day < 10 ? '0' + day : day;  
+    
+    const maxDate = `${year}-${month}-${day}`;
+    document.getElementById('bornDateInput').max = maxDate;
 
 
 

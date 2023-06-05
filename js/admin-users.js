@@ -1,52 +1,59 @@
 const d = document;
 const formChargeUser = d.getElementById('form-users');
+let usersList = [];
+
 
 if(!window.localStorage.getItem('currentUser')){
     window.location.href ='/index.html';
 }
 
 
+const currentDate = new Date();
+const year = currentDate.getFullYear();
+let month = currentDate.getMonth() + 1;
+month = month < 10 ? '0' + month : month; 
+let day = currentDate.getDate();
+day = day < 10 ? '0' + day : day;  
+
+const maxDate = `${year}-${month}-${day}`;
+
 const roleOptions=[
-    {value:'ADMIN_ROLE',name:'ADMIN'},
+    {value:'CLIENT_ROLE',name:'CLIENTE'},
     {value:'USER_ROLE',name:'USER'},
+    {value:'ADMIN_ROLE',name:'ADMIN'},
     {value:'SUPERADMIN_ROLE',name:'SUPERADMIN'}
 ]
 
 formChargeUser.innerHTML = `
-<button class = "close-modal" onclick="removeFormUser()">X</button>
+<button class = "close-modal" onclick="removeFormUser(event)">X</button>
 <h3 id='form-title'>Agregar Usuario</h3>
 <form class="product-form" id="product-form" onsubmit="handleSubmit(event)" data-mode='add'>
 
 <div class="input-box">
     <label for="nameInput">Nombre Completo</label><br>
-    <input type="text" name="fullname" id="nameInput" class= "input-form-products" max-length="100" min-length="4" required>
+    <input type="text" name="fullName" id="nameInput" class= "input-form-products" max-length="100" min-length="4"  />
+    <input type="hidden" name="_id" id="id" />
 </div>
 
 <div class="input-box">
 <label for="emailInput">E-mail</label> <br>
-<input type="text" name="email" id="emailInput" class= "input-form-products" max-length="100" min-length="4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+<input type="text" name="email" id="emailInput" class= "input-form-products" max-length="100" min-length="4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" />
 </div>
 
 <div class="input-box">
     <label for="bornInput">Fecha de Nacimiento</label><br>
-    <input type="date" name="bornDate" id="bornInput" class= "input-form-products" max="2023-05-10" min="1920-01-01" required>
+    <input type="date" name="bornDate" id="bornInput" class= "input-form-products" max=${maxDate} min="1920-01-01"  />
 </div>
 
 <div class="input-box">
 <label for="roleSelector">Rol</label>
 <select name="role" id="roleSelector" class ="role-selector">
 <optgroup>
-    <option value="USER_ROLE">USER</option>
-    <option value="ADMIN_ROLE">ADMIN</option>
-    <option value="SUPERADMIN_ROLE">SUPERADMIN</option>
+    ${roleOptions.map(rol=>
+    {return `<option value=${rol.value}>${rol.name}</option>`}
+)}
 </optgroup>
 </select>
-</div>
-
-
-<div class="input-box">
-<label for="createdInput">Fecha de Creación</label>
-<input type="date" name="creationDate" id="createdInput" class="input-form-products" max="2023-05-10" min="1920-01-01" required>
 </div>
 
 <div class = "container-btns-fp">
@@ -59,9 +66,10 @@ function showFormUser() {
     formChargeUser.classList.add('visible');
 }
 
-function removeFormUser() {
-    formChargeUser.classList.remove('visible');
+function removeFormUser(e) {
+    e.preventDefault()
     handleCleanUser()
+    formChargeUser.classList.remove('visible');
 }
 
 const handleCleanUser =()=>{
@@ -72,45 +80,56 @@ const handleCleanUser =()=>{
 }
 
 
-function handleSubmitUser(evt) {
+async function handleSubmitUser(evt) {
     evt.preventDefault();
     const element = evt.target.elements;
     if(evt.target.dataset.mode==='add'){
         const newUser = {
-            fullname : element.fullname.value ,
+            fullName : element.fullName.value ,
             email : element.email.value,
             bornDate : element.bornDate.value ,
             password:element.email.value,
-            password2: element.email.value,
             role: element.role.value,
-            creationDate:element.creationDate.value
+            createdAt:Date.now()
         };
-        usersList.push(newUser)
-        window.localStorage.setItem('users',JSON.stringify(usersList))
-        renderizarUsuarios(usersList)
+        try {
+            await axios.post(`${URL}/users`, newUser)
+            const msg = 'El usuario se agregó correctamente. La contraseña por defecto es el e-mail.';
+            showAlert(msg, 'success', 3500)
+            printUsers();
+        } catch (error) {
+            console.log(error);
+            showAlert(error.response.data.msg, 'error',3000);
+        }
+
         handleCleanUser()
         formChargeUser.classList.remove('visible')
 
         return;
     }
     if(evt.target.dataset.mode==='edit'){
-        let IndexToReplace=usersList.findIndex(e=>
-            e.email==element.email.value
-        )
 
         const newUser = {
-            fullname : element.fullname.value ,
+            fullName : element.fullName.value ,
             email : element.email.value,
-            bornDate : element.bornDate.value ,
-            password:element.email.value,
-            password2: element.email.value,
+            bornDate : element.bornDate.value,
             role: element.role.value,
-            creationDate:element.creationDate.value
         };
 
-        usersList[IndexToReplace]=newUser
-        window.localStorage.setItem('users',JSON.stringify(usersList))
-        renderizarUsuarios(usersList)
+        try {
+            const token = window.localStorage.getItem('token');
+            const id= element.id.value;
+            const resp = await axios.put(`${URL}/users/${id}`, newUser, {headers: {
+                Authorization: token}})
+            const msg = resp.data.msg;
+            showAlert(msg, 'success', 2500)
+            printUsers();
+        } catch (error) {
+            console.log(error);
+            showAlert(error.response.data.msg, 'error', 3000);
+        }
+
+
         handleCleanUser()
         formChargeUser.classList.remove('visible')
 
@@ -124,46 +143,67 @@ const handleEdit =(el)=>{
     formChargeUser.classList.add('visible')
     Object.entries(el).forEach(([key,value])=>{
         if(formChargeUser[key]){
-            formChargeUser[key].value=value
+            if(key==='bornDate' || key==='createdAt'){
+                formChargeUser[key].value=new Date(value).toISOString().slice(0,10)
+            }else{
+                formChargeUser[key].value=value
+            }
         }
     })
     
 }
 
-function handleDelete(i){
-    showConfirm('Desea borrar el usuario?', 'Si presiona el botón Aceptar el usuario se habrá borrado definitivamente', ()=>deleteUser(i))
+function handleDelete(id){
+    showConfirm('Desea borrar el usuario?', 'Si presiona el botón Aceptar el usuario se habrá borrado definitivamente', ()=>deleteUser(id))
 }
 
-function deleteUser(i){
-    let newUsers = usersList.filter((el,inx)=>{return inx!==i})
-    window.localStorage.setItem('users',JSON.stringify(newUsers))
-let refreshUsers = JSON.parse(window.localStorage.getItem('users'));
-
-    renderizarUsuarios(refreshUsers)
-    
+async function deleteUser(id){
+    try {
+        const token = window.localStorage.getItem('token');
+        const resp = await axios.delete(`${URL}/users/${id}`, {headers: {
+            Authorization: token}})
+        const msg = resp.data.msg;
+        showAlert(msg, 'success', 2500)
+        printUsers();
+    } catch (error) {
+        console.log(error);
+        showAlert(error.response.data.msg, 'error', 3000);
+    }    
 }
 
 function handleRole(event,i){
 
-    showConfirm(`¿Desea cambiar el rol del usuario ${usersList[i].fullname}?`, `Si presiona aceptar cambiará su rol de ${usersList[i].role} a ${event.target.value}`, () => changeRole(event,i))
+    showConfirm(`¿Desea cambiar el rol del usuario ${usersList[i].fullName}?`, `Si presiona aceptar cambiará su rol de ${usersList[i].role} a ${event.target.value}`, () => changeRole(event,i))
     
 }
 
-function changeRole(event, i) {
-    usersList[i].role=event.target.value
-    window.localStorage.setItem('users',JSON.stringify(usersList))
+async function changeRole(event, i) {
+
+    try {
+        const token = window.localStorage.getItem('token');
+        const id= usersList[i]._id
+        const selectedRole = event.target.value
+        const resp = await axios.put(`${URL}/users/${id}`, {role: selectedRole}, {headers: {
+            Authorization: token}})
+        const msg = resp.data.msg;
+        showAlert(msg, 'success', 2500)
+        printUsers();
+    } catch (error) {
+        console.log(error);
+        showAlert(error.response.data.msg, 'error',3000);
+    }
 }
 
-function renderizarUsuarios(usersList) {
+function renderizarUsuarios(users) {
 
-let usersRows = usersList.map((el,i)=>{
-
+let usersRows = users?.map((el,i)=>{
+    
     return(
     `
     <tr>
-    <td>${el.fullname}</td>
+    <td>${el.fullName}</td>
     <td>${el.email}</td>
-    <td>${new Date(el.bornDate).toLocaleDateString()}</td>
+    <td>${formatearFecha(el.bornDate)}</td>
     <td>
         <select name="role" id="role-selector" onchange="handleRole(event,${i})">
         <optgroup>
@@ -177,10 +217,11 @@ let usersRows = usersList.map((el,i)=>{
         </optgroup>
         </select>
     </td>
-    <td>${el.creationDate}</td>
+    <td>${formatearFecha(el.createdAt)}</td>
     <td>
         <button class="user__action-btn" onclick='handleEdit(${JSON.stringify(el)})'><i class="fa-regular fa-pen-to-square"></i></button>
-        <button class="user__action-btn" onclick="handleDelete(${i})">
+
+        <button class="user__action-btn" onclick='handleDelete(${JSON.stringify(el._id)})'>
             <i class="fa-solid fa-trash-can"></i>
         </button> 
     </td>
@@ -191,11 +232,69 @@ let usersRows = usersList.map((el,i)=>{
     )
 })
 
+
 d.getElementById('users-rows').innerHTML = usersRows.join('')
 
 }
 
-renderizarUsuarios(usersList)
+d.getElementById('search-users').innerHTML=`
+<input type="text" placeholder="Buscar usuarios" onkeyup="handleBuscarUser(event)" id='users-search-input'>
+<button onclick='handleBuscarUser(event)' id='btn-search-users'>Buscar</button>
+<button onclick='cleanSearch()' class="limpiar-busqueda">X</button>`
+
+const gralContainer = d.getElementById('users-list');
+
+function handleBuscarUser(evt){
+    const result = d.getElementById('search-users-result');
+
+    if(evt.keyCode !==13 && evt.target.id !== 'btn-search-users'){
+        return
+    }
+    const searchValue=d.getElementById('users-search-input').value.toLowerCase()
+    let searchResults = usersList.filter((el)=>{
+        return el.fullName.toLowerCase().includes(searchValue) ||
+        el.email.toLowerCase().includes(searchValue) ||
+        el.bornDate.includes(searchValue) ||
+        el.role.toLowerCase().includes(searchValue) ||
+        el.createdAt.includes(searchValue) 
+    })
+
+    if(!searchResults.length > 0) {
+        gralContainer.style.display = "none";
+        result.innerHTML = `No se encontraron resultados`
+    }else{
+        gralContainer.style.display = "flex";
+    }
+
+    renderizarUsuarios(searchResults)
+}
+
+function cleanSearch(){
+    gralContainer.style.display = "flex";
+    printUsers()
+    d.getElementById('users-search-input').value=null
+}
+
+function formatearFecha(fechaIn) {
+    let fechaFormateada;
+    let fecha = new Date(fechaIn)
+    let dia = fecha.getDate()+1;
+    let mes = fecha.getMonth() + 1; 
+    let mesFormateado = mes < 10 ? '0' + mes : mes;
+    let diaFormateado = dia < 10 ? '0' + dia : dia;
+    let año = fecha.getFullYear();
+    return fechaFormateada = diaFormateado + '/' + mesFormateado + '/' + año;
+    
+    }
+
+
+async function printUsers() {
+    usersList = await obtenerUsuarios();
+    renderizarUsuarios(usersList)
+}
+
+printUsers();
+
 
 
 

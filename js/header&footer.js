@@ -1,6 +1,8 @@
+let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+const URL = 'http://localhost:8000'
 
 document.addEventListener('DOMContentLoaded', renderizarHeader('header'))
-document.addEventListener('DOMContentLoaded', renderizarFooter('footer'))
+document.addEventListener('DOMContentLoaded', renderizarFooter('footer'));
 
 
 function renderizarHeader(id){
@@ -15,7 +17,8 @@ function renderizarHeader(id){
             <p id='cart-count' class='cart-count'>0</p>
         </button>
         <div class="user-navbar__user-avatar-container">
-            <img src="https://corporacionhidraulica.com.pe/wp-content/uploads/2022/08/usu.png" alt="imagen de usuario" class="user-navbar__user-avatar">
+            <img src="${userImage()}" alt="imagen de usuario" class="user-navbar__user-avatar" onclick="menuUser()">
+            <div class="menu-user"></div>
         </div>
     </div>
     
@@ -49,19 +52,19 @@ function renderizarFooter(id){
             <a href="#" class="footer__contact-link">
             <i class="fa-brands fa-facebook-f footer__contact-icon
             footer__contact-icon--facebook"></i>
-                Facebook
+                DE&CO Diseño
             </a>
         </li>
         <li class="footer__contact-item">
             <a href="#" class="footer__contact-link">
             <i class="fa-brands fa-instagram footer__contact-icon footer__contact-icon--instagram"></i>
-                Instagram
+                @decotienda
             </a>
         </li>
         <li class="footer__contact-item">
             <a href="#" class="footer__contact-link">
             <i class="fa-brands fa-linkedin footer__contact-icon footer__contact-icon--linkedin"></i>
-                Linkedin
+            DE&CO Diseño
             </a>
         </li>    
     </ul>
@@ -80,19 +83,19 @@ function renderizarFooter(id){
         <li class="footer__contact-item">
             <a href="#" class="footer__contact-link">
                 <i class="fa-solid fa-phone footer__contact-icon"></i>
-                Teléfono
+                +54 9 351 1111111
             </a>
         </li>
         <li class="footer__contact-item">
             <a href="#" class="footer__contact-link">
                 <i class="fa-solid fa-location-dot footer__contact-icon"></i>
-                Localización
+                Córdoba, Argentina
             </a>
         </li>
         <li class="footer__contact-item">
             <a href="#" class="footer__contact-link">
                 <i class="fa-solid fa-envelope footer__contact-icon"></i>
-                E-mail
+                deco@tienda.com
             </a>
         </li>    
     </ul>
@@ -101,4 +104,10 @@ function renderizarFooter(id){
 </div>`
 }
 
-
+function userImage() {
+    if(currentUser?.image) {
+        return `${URL}/upload/users/${currentUser.image}` 
+    } else {
+        return `/assets/images/user-defaultjpg.jpg`
+    }
+}
