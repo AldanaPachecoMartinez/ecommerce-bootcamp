@@ -288,7 +288,7 @@ html {
   border-radius: 20px;
   box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
-  z-index: 25;
+  z-index: 500;
   bottom: 50%;
   left: 50%;
   transform: translateX(-50%);
@@ -1908,6 +1908,18 @@ body {
   margin-top: 1rem;
   width: 95%;
 }
+#users-list::-webkit-scrollbar {
+  height: 10px;
+  border-radius: 100px;
+}
+#users-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 100px;
+}
+#users-list::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 100px;
+}
 
 .table-users-main {
   border-collapse: collapse;
@@ -2022,10 +2034,25 @@ body {
   width: 35%;
   font-family: "Hind", sans-serif;
   border-radius: 15px;
-  top: 2%;
+  top: 1%;
   z-index: 200;
   box-shadow: 0px 0px 27px -5px lightgray;
   margin: 0.5rem 0.8rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: fixed;
+}
+.form-container.visible::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 100px;
+}
+.form-container.visible::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 100px;
+}
+.form-container.visible::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 100px;
 }
 
 .close-modal {
@@ -2049,6 +2076,7 @@ body {
 
 .input-box {
   margin-top: 0.5rem;
+  width: 100%;
 }
 
 .input-form-products {
@@ -2078,6 +2106,7 @@ body {
 .container-btns-fp {
   margin: 1rem 0 0.5rem;
   display: flex;
+  width: 100%;
   justify-content: space-evenly;
 }
 .container-btns-fp .submit-btn {
@@ -2186,16 +2215,32 @@ body {
 }
 
 .products-table td {
-  max-width: 250px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 235px;
+  max-height: 300px;
+  overflow: auto;
   white-space: nowrap;
-  text-align: left;
+  text-align: center;
   padding: 0rem 0.5rem;
+}
+.products-table td::-webkit-scrollbar {
+  height: 8px;
+  border-radius: 100px;
+}
+.products-table td::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 100px;
+}
+.products-table td::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 100px;
 }
 
 .products-table th, .products-table td {
   border: 2px solid rgba(193, 193, 193, 0.5);
+  vertical-align: middle;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 0.2rem 0.5rem;
 }
 
 .products-table tr {
@@ -2210,6 +2255,14 @@ body {
 
 .img-product-table {
   width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0.2rem 0.2rem;
+}
+
+.td-id {
+  max-width: 90px !important;
 }
 
 .products-rows tr {
@@ -2275,13 +2328,37 @@ body {
 .container-pt {
   overflow-x: auto;
   max-width: 100vw;
+  margin-bottom: 0.8rem;
+}
+.container-pt::-webkit-scrollbar {
+  height: 10px;
+  border-radius: 100px;
+}
+.container-pt::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 100px;
+}
+.container-pt::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 100px;
+}
+
+.product-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 #images-selector {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  padding: 0.5rem;
   overflow-y: auto;
+  max-width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .image-sel {
@@ -2347,6 +2424,42 @@ body {
   font-style: italic;
 }
 
+.td-img {
+  text-align: left !important;
+}
+
+#paginacion-products {
+  margin-bottom: 1rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.pag-btn {
+  background-color: transparent;
+  color: rgb(114, 114, 114);
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.pag-btn:hover {
+  color: rgb(159, 159, 159);
+}
+
+.pag-input {
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 55px;
+}
+.pag-input:focus {
+  outline: none;
+}
+
 @media screen and (min-width: 1600px) {
   .form-container.visible {
     width: 25%;
@@ -2356,7 +2469,7 @@ body {
 @media (min-width: 600px) and (max-width: 1500px) {
   .form-container.visible {
     width: 50%;
-    top: 5%;
+    top: 4.5%;
   }
 }
 @media (min-width: 0px) and (max-width: 599px) {

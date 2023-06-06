@@ -1,13 +1,25 @@
 const params = window.location.search
 const paramsUrl = new URLSearchParams(params);
-const indice = paramsUrl.get('id');
-const product = products[indice];
+const id = paramsUrl.get('id');
+const productDetail = document.getElementById('product-detail')
 
-const productDetail = document.getElementById('product-detail').innerHTML= 
+
+async function getProductData(id){
+    return await axios.get(`${URL}/products/${id}`)
+    .then(res=>{
+        return res.data.product
+    })
+    .catch(err=>console.log(err))
+}
+
+async function renderProduct(id){
+    let product =await getProductData(id)
+
+productDetail.innerHTML= 
 `
 <div class="container-dtl__carrousel">
-<img src="${product?.images[0]||'/assets/images/logo-marca.png'}" alt="" class="container-dtl__imgs" id='image-product-detail'>
-<img src="${product?.images[1]||'/assets/images/logo-marca.png'}" alt="" class="second-image-detail">
+<img src="${URL}/upload/products/${product?.images[0]||'/assets/images/logo-marca.png'}" alt="" class="container-dtl__imgs" id='image-product-detail'>
+<img src="${URL}/upload/products/${product?.images[1]||'/assets/images/logo-marca.png'}" alt="" class="second-image-detail">
 </div>
 
 <div class="container-description">
@@ -22,7 +34,7 @@ const productDetail = document.getElementById('product-detail').innerHTML=
             <input id="suma-products-detail" value=1 disabled/>
             <button class="agregar-product" onclick='changeQuantity("+")'>+</button>
             </div>
-            <p class="stock-text-dtl">${product.stock} disponibles</p>
+            <p class="stock-text-dtl">${product?.stock} disponibles</p>
             </div>
     </div>
     <div class="container-btn-comprar">
@@ -34,6 +46,8 @@ const productDetail = document.getElementById('product-detail').innerHTML=
 </div>
 
 `
+}
+
 
 function addToCart(product){
     let cantidad= Number(document.getElementById('suma-products-detail').value)
@@ -74,3 +88,5 @@ if(document.getElementById('suma-products-detail').value==='1' && operator==='-'
     cantidad= Number(document.getElementById('suma-products-detail').value)
     document.getElementById('suma-products-detail').value= cantidad += (operator==='+') ? 1 :-1
 }
+
+renderProduct(id)

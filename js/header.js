@@ -16,8 +16,6 @@ if(userCart.length===0){
 }
 
 
-
-
 function renderHeaderLinks() {
 
     
@@ -32,8 +30,12 @@ if(currentUser) {
     const adminUserLink = createListItemElement('admin-user', 'Usuarios');
         adminUserLink.classList.add('navbar__nav-item');
 
+    const adminOrdersLink = createListItemElement('admin-orders', 'Órdenes');
+        adminOrdersLink.classList.add('navbar__nav-item');
+
     navbarList.appendChild(adminProductLink);
     navbarList.appendChild(adminUserLink);
+    navbarList.appendChild(adminOrdersLink);
 
     }
 

@@ -18,17 +18,17 @@ const renderProducts = (products) => {
     return `
     
     <tr>
-    <td>${el._id}</td>
+    <td class= "td-id">${el._id}</td>
     <td>${el.name}</td>
     <td>${el.price}</td>
             <td class="long-text">${el.resume}</td> 
             <td class="long-text">${el.description}</td>
             <td>
-            <img src='${URL}/upload/products/${el.thumbnail}' class="img-product-table" />
+            <img src='${URL}/upload/products/${(el.thumbnail)?el.thumbnail:'notimage.png'}' class="img-product-table" />
             </td>
-            <td> 
+            <td class="td-img"> 
             ${
-                el.images.map(src=> `<img src="${URL}/upload/products/${src}" class="img-product-table"></img>`)
+                el.images.map(src=> `<img src="${URL}/upload/products/${src}" class="img-product-table"></img>`).join('')
             }
             </td>
             <td>${el.category}</td>
@@ -53,7 +53,10 @@ const renderProducts = (products) => {
 };
 
 function showForm() {
+    
     formContainer.classList.add('visible');
+    d.getElementById('imagesInput').style.display='inline'
+
 }
 
 function removeForm() {
@@ -65,7 +68,7 @@ formContainer.innerHTML = `
 
 <button class = "close-modal" onclick="removeForm()">X</button>
 <h3 id='form-title'>Agregar Producto</h3>
-<form class="product-form" id="product-form" onsubmit="handleSubmit(event)" data-mode='add'>
+<form class="product-form" id="product-form" onsubmit=handleSubmit(event) data-mode='add'>
 
 <div class="input-box">
     <input type="hidden" name="_id" required >
@@ -84,21 +87,23 @@ formContainer.innerHTML = `
 
 <div class="input-box">
     <label for="resumeInput">Resumen</label><br>
-    <textarea name="resume" id="resumeInput" rows="4" max-lenght="4" min-lenght="80" class ="textarea-form"></textarea>
+    <textarea name="resume" id="resumeInput" rows="4" max-lenght="300" min-lenght="0" class ="textarea-form"></textarea>
 </div>
 
 <div class="input-box">
     <label for="descriptionInput">Descripción</label><br>
-    <textarea name="description" id="descriptionInput" rows="5" class ="textarea-form"></textarea>
+    <textarea name="description" id="descriptionInput" rows="5" class ="textarea-form" max-lenght="400" min-lenght="0"></textarea>
 </div>
 
-<div class="input-box">
+<div class="input-box" id='input-new-images'>
 <label for="imagesInput">Imágenes</label>
 <input type="file" name="file" id="imagesInput" class= "input-form-products" multiple
-required>
+>
 </div>
-<div id='images-selector'></div>
+
+<div id='images-selector' style="display:none">
 <p class='img-aclaration'>La imagen que seleccione como favorita quedará como portada del producto</p>
+</div>
 
 <div class="input-box">
     <label for="categoryInput">Categoría</label><br>
@@ -118,27 +123,63 @@ required>
 </form>
 `;
 
-async function deleteImage (evt,img){
+async function deleteImage (evt,img,form){
     evt.preventDefault()
+    if(img === form.thumbnail){
+        return showAlert(`No se puede eliminar la imagen de portada`)
+    }
     const token = window.localStorage.getItem('token')
+    let newImages = form.images.filter(el => el !==img)
+    let newForm = {...form,images:newImages}
+
     try {
         let resp= await axios.delete(`${URL}/products/image/${img}`,{
+            headers:{Authorization:token}
+        })
+            
+        await axios.put(`${URL}/products/${form._id}`,
+        {images:newImages},{
             headers:{Authorization:token}
         })
     
         const msg = resp.data.msg;
         showAlert(msg, 'success', 2500)
+        handleEdit(newForm)
+        printProducts()
     } catch (error) {
-        console.log(error);
         showAlert(error.response.data.msg, 'error', 3000);
+        console.log(error);
+        return
     }
 }
 
+async function handleThumb(evt, img, form) {
+evt.preventDefault();
+const token = window.localStorage.getItem('token')
+
+try {
+    await axios.put(`${URL}/products/${form._id}`,
+    {thumbnail: img},{
+        headers:{Authorization:token}
+    })
+    let newForm = {...form,thumbnail:img}
+    handleEdit(newForm)
+    printProducts()
+} catch (error) {
+    console.log(error);
+    return
+}
+}
 const handleEdit =(el)=>{
+    const data = JSON.stringify(el)
     const formProducts= d.getElementById("product-form")
     formProducts.dataset.mode='edit'
     formProducts['submit-btn'].innerHTML='Editar'
     d.getElementById('form-title').innerHTML='Editar Producto'
+    d.getElementById('imagesInput').style.display='none'
+    d.getElementById('images-selector').style.display="flex"
+
+    
     formContainer.classList.add('visible')
     Object.entries(el).forEach(([key,value])=>{
         if(formProducts[key]){
@@ -146,15 +187,56 @@ const handleEdit =(el)=>{
         }
 if(key==='images'){
     let renderImage = value.map(img=>`<div class='img-card'>
-    <img src="${URL}/upload/products/${img}"} class='image-sel'>
-    <button class='img-card__del' onclick=deleteImage(event,'${img}')><i class="fa-solid fa-xmark"></i></button>
-    <button class='img-card__fav'>${(el.thumbnail===img)? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star">'}</i></i></button>
+    <img src='${URL}/upload/products/${img}'} class='image-sel'>
+    <button class='img-card__del' onclick='deleteImage(event,"${img}",${data})'><i class='fa-solid fa-xmark'></i></button>
+    <button class='img-card__fav' onclick='handleThumb(event,"${img}",${data})'>${(el.thumbnail===img)? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star">'}</i></i></button>
     </div>
     `).join('')
-    d.getElementById('images-selector').innerHTML=renderImage + '<button class="add-image"><i class="fa-solid fa-circle-plus"></i></button>'
+    d.getElementById('images-selector').innerHTML=renderImage + `<input type="file" style="display: none" id="input-add-img" multiple>
+    <button class="add-image" onclick='handleAddImg(event, ${data})'><i class="fa-solid fa-circle-plus"></i></button>`
 }
     })
     
+}
+
+async function handleAddImg(evt, form) {
+    evt.preventDefault()
+const token = window.localStorage.getItem('token')
+const addInput = d.getElementById('input-add-img')
+addInput.click()
+addInput.addEventListener('change', async function(){
+    let newProduct= new FormData() 
+    newProduct.append('name',form.name)
+    newProduct.append('description',form.description)
+    newProduct.append('price',form.price)
+    newProduct.append('resume',form.resume)
+    newProduct.append('category',form.category)
+    newProduct.append('stock',form.stock)
+    newProduct.append('favorite',false)
+    newProduct.append('images', JSON.stringify(form.images))
+    for (var i = 0; i < addInput.files.length; i++) {
+        var file = addInput.files[i];
+        newProduct.append('file', file);
+    }
+    
+    try {
+        let res= await axios.post(`${URL}/products/image/${form._id}`,
+        newProduct,{
+            headers:{Authorization:token,
+                'Content-Type': 'multipart/form-data'}
+            
+        })
+        const newForm = res.data.newData
+        console.log(res)
+        printProducts()
+        handleEdit({...newForm,_id:form._id})
+    } catch (error) {
+        console.log(error)
+        return
+    }
+    
+})
+
 }
 
 const handleClean =()=>{
@@ -162,6 +244,8 @@ const handleClean =()=>{
     formProducts.dataset.mode='add'
     formProducts['submit-btn'].innerHTML='Agregar'
     d.getElementById('form-title').innerHTML='Agregar Producto'
+    d.getElementById('images-selector').style.display="none"
+
     formProducts.reset()
 }
 
@@ -183,6 +267,7 @@ try {
 } catch (error) {
     console.log(error);
     showAlert(error.response.data.msg, 'error', 3000);
+    return
 }    
 
 }
@@ -198,11 +283,12 @@ try {
     })
 
     const msg = `El producto fue ${(newValue) ? 'agregado a' : 'quitado de'} sus favoritos`
-    showAlert(msg, 'success', 2500)
+    showAlert(msg, 'success', 2000)
     printProducts();
 } catch (error) {
     console.log(error);
     showAlert(error.response.data.msg, 'error', 3000);
+    return
 }    
 
 }
@@ -210,6 +296,7 @@ try {
 async function handleSubmit(evt) {
     evt.preventDefault();
     const element = evt.target.elements;
+    const token=window.localStorage.getItem('token')
 
     if(evt.target.dataset.mode==='add'){
 
@@ -239,34 +326,38 @@ async function handleSubmit(evt) {
             console.log(error);
         showAlert(error.response.data.msg, 'error',3000);
         }
-        renderProducts(products)
+        printProducts()
         handleClean()
         formContainer.classList.remove('visible')
 
         return;
     }
     if(evt.target.dataset.mode==='edit'){
-        let IndexToReplace=products.findIndex(e=>
-            e.id==element.id.value
-        )
-        console.log(IndexToReplace)
-
+    
         const newProduct = {
-            id: element.id.value,
+            id: element._id.value,
             name : element.name.value ,
             description : element.description.value,
             price : element.price.valueAsNumber ,
             resume:element.resume.value,
-            thumbnail: element.thumbnail.value,
-            images: element.images.value,
             category: element.category.value,
             stock: element.stock.valueAsNumber,
             favorite:element.favorite.value
         };
 
-        products[IndexToReplace]=newProduct
-        window.localStorage.setItem('products',JSON.stringify(products))
-        renderProducts(products)
+        try {
+        let resp=await axios.put(`${URL}/products/${element._id.value}`,
+        newProduct ,{
+        headers:{Authorization:token}
+        })
+        const msg = resp.data.msg;
+        showAlert(msg, 'success', 2500)
+        } catch (error) {
+            console.log(error);
+            showAlert(error.response.data.msg, 'error', 3000);
+            return
+        }
+        printProducts()
         handleClean()
         formContainer.classList.remove('visible')
 
@@ -333,11 +424,8 @@ function renderPaginacion() {
     let maxPages=Math.ceil((totalResults/limit))
 if(maxPages>1){
     paginacion.innerHTML = `
-    <div>
-    <button onclick=handlePage('-',${maxPages})><i class="fa-solid fa-chevron-left"></i></button> 
-    <input type="number" max=${maxPages} min=1 value=${currentPage}> 
-    <button onclick=handlePage('+',${maxPages})><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+    <button onclick=handlePage('-',${maxPages}) class="pag-btn"><i class="fa-solid fa-chevron-left"></i></button> 
+    <input type="text" max=${maxPages} min=1 value=${currentPage} class="pag-input" readonly><button onclick=handlePage('+',${maxPages}) class="pag-btn"><i class="fa-solid fa-chevron-right"></i></button>
     `
 }else{
     paginacion.innerHTML = ``
