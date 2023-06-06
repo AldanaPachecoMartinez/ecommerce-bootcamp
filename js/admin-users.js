@@ -203,7 +203,7 @@ let usersRows = users?.map((el,i)=>{
     <tr>
     <td>${el.fullName}</td>
     <td>${el.email}</td>
-    <td>${formatearFecha(el.bornDate)}</td>
+    <td>${formatearFecha1(el.bornDate)}</td>
     <td>
         <select name="role" id="role-selector" onchange="handleRole(event,${i})">
         <optgroup>
@@ -275,10 +275,21 @@ function cleanSearch(){
     d.getElementById('users-search-input').value=null
 }
 
-function formatearFecha(fechaIn) {
+function formatearFecha1(fechaIn) {
     let fechaFormateada;
     let fecha = new Date(fechaIn)
     let dia = fecha.getDate()+1;
+    let mes = fecha.getMonth() + 1; 
+    let mesFormateado = mes < 10 ? '0' + mes : mes;
+    let diaFormateado = dia < 10 ? '0' + dia : dia;
+    let año = fecha.getFullYear();
+    return fechaFormateada = diaFormateado + '/' + mesFormateado + '/' + año;
+    
+    }
+function formatearFecha(fechaIn) {
+    let fechaFormateada;
+    let fecha = new Date(fechaIn)
+    let dia = fecha.getDate();
     let mes = fecha.getMonth() + 1; 
     let mesFormateado = mes < 10 ? '0' + mes : mes;
     let diaFormateado = dia < 10 ? '0' + dia : dia;

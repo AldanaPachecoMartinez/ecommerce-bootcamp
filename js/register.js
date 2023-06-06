@@ -6,7 +6,6 @@ const registerBtn = document.getElementById('registerSubmit');
         const el = event.target.elements;
         const { fullName,email, password,age,bornDate } = registerForm.elements;
         const role='USER_ROLE'
-console.log(country)
     if(el.password.value !== el.password2.value) {
         showAlert(`Las contraseñas no coinciden`, 'warning')
         return

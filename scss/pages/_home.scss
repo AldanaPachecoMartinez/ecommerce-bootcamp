@@ -32,6 +32,37 @@
     &__category{font-family:'Nunito Sans', sans-serif;
     margin: .5rem 1.5rem;
     font-size: 1.2rem;}
+
+    &__category-labels{
+        display: flex;
+        justify-content: center;
+
+    .label-index{
+        margin: .1rem .5rem;
+        font-size: .8rem;
+        text-transform: uppercase;
+        color: $color-text-light;
+        text-decoration: none;
+        border-radius: 5px;
+        font-family: "Libre Baskerville", serif;
+        letter-spacing: 0.8px;
+        text-align: center;
+        width: auto;
+        padding: 0.7rem;
+        border: 1.5px solid $color-text-light;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+            transition: .3s ease-in;
+            color: $color-table;
+            border: 1.5px solid $color-table;
+        }
+
+        &:visited{
+            color: $color-text-light;
+        }
+    }
+    }
 }
 
 .product-search{font-family:'Nunito', sans-serif;
@@ -150,6 +181,14 @@ margin-bottom: .5rem;
         &__btn{
             width: 40%;
         }
+    }
+
+    .section-cards__category-labels{
+        margin-bottom: 1.3rem !important;
+    }
+
+    .section-cards__products-search-container{
+        margin-bottom: .5rem !important;
     }
 }
 

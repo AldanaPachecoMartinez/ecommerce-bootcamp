@@ -8,9 +8,10 @@ loginForm.addEventListener('submit', async (event) => {
     try {
         const dataBody = { email: email.value, password: password.value };
         const resp = await axios.post(`${URL}/login`, dataBody );
-        const {token, user, msg} = resp.data;
+        const {token, user, msg,expireDate} = resp.data;
 
         localStorage.setItem('token', token);
+        localStorage.setItem('tokenExpiration', JSON.stringify(expireDate));
         localStorage.setItem('currentUser', JSON.stringify(user));
 
         showAlert(msg);

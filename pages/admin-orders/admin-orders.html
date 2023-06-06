@@ -15,7 +15,7 @@
     <main class="main">
         
         <div id="search-orders"></div>
-        <div id="search-orders-result"></div>
+        <div id="search-orders-results"></div>
 
         <div id="orders-list">
             <table id="orders-table" class="products-table">
@@ -26,25 +26,29 @@
                     <td>Productos</td>
                     <td>Monto total</td>
                     <td>Fecha de creación</td>
+                    <td>Estado</td>
                     <td>Acciones</td>
                     </tr>
                 </thead>
-                <tbody id="users-rows">
+                <tbody id="orders-rows">
 
                 </tbody>
             </table>
 
+        </div>
+
+        <div id="order-info" class="order-info-container">
+        
         </div>
     </main>
 
     <footer id="footer"></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/alert.js"></script>
     <script src="/js/header&footer.js"></script>
     <script src="/js/header.js"></script>
     <script src="/js/admin-orders.js"></script>
-    <script src="/js/index.js"></script>
     <script src="/js/orders.js"></script>
-    <script src="/js/alert.js"></script>
 </body>
 </html>

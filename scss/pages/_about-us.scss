@@ -47,6 +47,20 @@
 	transform-style: preserve-3d;
 	backface-visibility: hidden;
 	border-radius: 20px;
+    &::-webkit-scrollbar {
+        width: 5px;
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 100px;
+    }
 }
 .content {
 	transform: translatez(70px) scale(0.8);
@@ -84,6 +98,10 @@
     font-size: 1.3rem;
     overflow: hidden;
 }
+
+.back h1{
+    padding-top: 1.5rem;}
+
 .container:hover {
 	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
@@ -139,7 +157,7 @@
     .content {margin-top: .5rem;}
 
     .side{
-        overflow: scroll;
+        overflow: auto;
         padding: 0px;
         display: grid;
         align-content: center;
@@ -171,7 +189,8 @@
 }
 
 @media screen and (max-height: 800px) {
-    .side{overflow: scroll;}
+    .side{overflow: auto;
+    }
 }
 
 
@@ -188,10 +207,10 @@
     .valoracion button{font-size: 1.1rem;}
 
     .front{background-position: center;
-    overflow: scroll;}
+    overflow: auto;}
 
     .side{
-        overflow: scroll;
+        overflow: auto;
         padding: 0px;
         display: grid;
         align-content: center;}
@@ -211,7 +230,7 @@
         font-size: 1.4rem;}
 
         .side{
-            overflow: scroll;
+            overflow: auto;
             padding: 0px;
             display: grid;
             align-content: center;

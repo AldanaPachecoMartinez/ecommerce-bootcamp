@@ -1,18 +1,18 @@
 const navbarList = document.getElementById('navbar-list')
-const products = JSON.parse(localStorage.getItem('products'));
-const allCarts=JSON.parse(window.localStorage.getItem('cart'))
-let userCart=allCarts?.filter((el)=> el?.email === currentUser?.email)||[]
+let userCart=JSON.parse(window.localStorage.getItem('cart'))
 const signIn = document.getElementById('sign-in');
+let expiredToken = (new Date().getTime() >= JSON.parse(window.localStorage.getItem("tokenExpiration")))
 
-
-
-if(!allCarts){
-    userCart=[{email:currentUser?.email,order:[]}]
-    window.localStorage.setItem('cart',JSON.stringify(userCart))
+if(expiredToken && currentUser){
+showAlert("La sesión expiró. Por favor loguearse nuevamente","warning",3000)
+    setTimeout(() => {
+        logout()
+}, 3500);
 }
-if(userCart.length===0){
-    allCarts.push({email:currentUser?.email,order:[]})
-    window.localStorage.setItem('cart',JSON.stringify(allCarts))
+
+if(!userCart){
+    userCart={email:currentUser?.email,order:[]}
+    window.localStorage.setItem('cart',JSON.stringify(userCart))
 }
 
 
@@ -82,10 +82,10 @@ function menuUser() {
     <a href="/pages/profile/profile.html" class="navbar__nav-link menu-user__link"><i class="fa-regular fa-user icon-menu"></i> Ver mi perfil</a>
         </li>
         <li class="menu-user__item">
-    <a href="/pages/contact/contact.html" class="navbar__nav-link menu-user__link"><i class="fa-regular fa-bookmark icon-menu"></i>  Mis órdenes</a>
+    <a href="/pages/admin-orders/admin-orders.html" class="navbar__nav-link menu-user__link"><i class="fa-regular fa-bookmark icon-menu"></i>  Mis órdenes</a>
         </li>
         <li class="menu-user__item">
-    <a href="/pages/contact/contact.html" class="navbar__nav-link menu-user__link"><i class="fa-solid fa-wand-magic-sparkles icon-menu"></i> Wishlist</a>
+    <a href="/" class="navbar__nav-link menu-user__link"><i class="fa-solid fa-wand-magic-sparkles icon-menu"></i> Wishlist</a>
         </li>
         <li class="menu-user__item">
     <a class="navbar__nav-link menu-user__link" onclick="logout()"><i class="fa-solid fa-door-open icon-menu"></i> Salir</a>
@@ -93,6 +93,10 @@ function menuUser() {
     </ul>
     `
     menu.classList.add('visible');
+
+    if(!currentUser) {
+        menu.style.display = 'none';
+    }
 }
 
 function closeMenu() {

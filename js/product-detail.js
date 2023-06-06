@@ -61,16 +61,16 @@ function addToCart(product){
         return
     }
 
-let userCart=allCarts?.filter((el)=> el?.email === currentUser?.email)||[]
 
 
-    let index = (userCart[0].order.findIndex(el=>el.product==product.id))
+
+    let index = (userCart.order.findIndex(el=>el.product==product._id))
     
     if(index !== -1){
-        userCart[0].order[index].quantity+=cantidad 
+        userCart.order[index].quantity+=cantidad 
     }else{
-        userCart[0].order.push({
-            product:product.id,
+        userCart.order.push({
+            product:product._id,
             quantity:Number(cantidad)
         })
     }
